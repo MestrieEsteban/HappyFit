@@ -10,6 +10,11 @@
     "lint": "yarn eslint App.js",
     "build": "yarn babel ./ --out-dir .dist --extensions \".ts\""
   },
+  "engines": {
+    "yarn": "^1.21",
+    "npm": "^6.14"
+
+  },
   "jest": {
     "preset": "jest-expo"
   },
