@@ -2,6 +2,10 @@ module.exports = {
     parser: 'babel-eslint',
     extends: ["eslint:recommended", "plugin:react/recommended"],
     plugins: ["react", "react-native", "prettier"],
+    env: {
+        browser: true,
+        node: true,
+    },
     rules: {
         'prettier/prettier': ['error', require('./prettier.config')],
         "react/no-did-mount-set-state": 2,
@@ -13,4 +17,3 @@ module.exports = {
         "react/jsx-no-duplicate-props": 2,
     }
   }
-  

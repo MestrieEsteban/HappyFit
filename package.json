@@ -8,7 +8,7 @@
     "eject": "expo eject",
     "test": "jest --watchAll",
     "lint": "yarn eslint App.js",
-    "build": "yarn babel ./ --out-dir .dist --extensions \".ts\""
+    "build": "yarn babel ./ --out-dir .dist --extensions \".js\" --fix"
   },
   "engines": {
     "yarn": "^1.21",
@@ -26,6 +26,7 @@
     "@react-navigation/web": "~1.0.0-alpha.9",
     "@sentry/react-native": "^1.3.5",
     "bulma": "^0.8.1",
+    "eslint-plugin-no-console-log": "^2.0.0",
     "expo": "~36.0.0",
     "expo-asset": "~8.0.0",
     "expo-constants": "~8.0.0",
