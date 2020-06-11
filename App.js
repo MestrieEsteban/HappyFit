@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { AppLoading, SplashScreen } from 'expo'
+import { AppLoading} from 'expo'
 import * as Font from 'expo-font'
 import { Ionicons } from '@expo/vector-icons'
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+
+import SplashScreen from './screens/SplashScreen'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
