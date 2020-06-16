@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppLoading} from 'expo'
+import { AppLoading } from 'expo'
 import * as Font from 'expo-font'
 import { Ionicons } from '@expo/vector-icons'
 
@@ -7,6 +7,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import SplashScreen from './screens/SplashScreen'
+import Questionnaire from './screens/Questionnaire'
+import ValidationQuestionnaire from './screens/ValidationQuestionnaire'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -40,8 +42,13 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none">
+        <Stack.Navigator headerMode="none" initialRouteName="Questionnaire">
           <Stack.Screen name="Spash Screen" component={SplashScreen} />
+          <Stack.Screen name="Questionnaire" component={Questionnaire} />
+          <Stack.Screen
+            name="Validation Questionnaire"
+            component={ValidationQuestionnaire}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     )

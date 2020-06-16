@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Dimensions, Image, Text, View } from 'react-native'
-import styles from '../css/style_placement'
-import TouchableOpacity from 'react-native-web/src/exports/TouchableOpacity'
+import { Dimensions, Text, View } from 'react-native'
+import redirection from '../css/style_redirection'
 
 export default class SplashScreen extends Component {
   constructor(props) {
@@ -15,13 +14,13 @@ export default class SplashScreen extends Component {
     const box_height = height / box_count
 
     return (
-      <View style={styles.container}>
-        <View style={styles.border_container}></View>
-        <View style={styles.border_logo}>
-          <Text style={styles.text_logo}>Logo</Text>
+      <View style={redirection.container}>
+        <View style={redirection.border_container}></View>
+        <View style={redirection.border_logo}>
+          <Text style={redirection.text_logo}>Logo</Text>
         </View>
-        <View style={styles.border_name}>
-          <Text style={styles.text_name}>HappyFit</Text>
+        <View style={redirection.border_name}>
+          <Text style={redirection.text_name}>HappyFit</Text>
         </View>
       </View>
     )
