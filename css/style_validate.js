@@ -9,7 +9,7 @@ module.exports = {
   },
   view_title: {
     flexDirection: 'column',
-    flex:2,
+    flex: 2,
   },
   title: {
     fontSize: 20,
