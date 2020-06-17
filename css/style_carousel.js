@@ -138,10 +138,10 @@ module.exports = {
     flex: 30,
   },
   border_espacement_title: {
-    flex: 70,
+    flex: 30,
   },
   espacement_button_objectif: {
-    flex: 250,
+    flex: 200,
   },
   espacement_btn_validate: {
     flex: 50,

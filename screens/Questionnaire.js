@@ -12,6 +12,17 @@ import slider from '../css/style_carousel'
 import RadioForm from 'react-native-simple-radio-button'
 import Slider from 'react-native-slider'
 
+const gender = [
+  { label: 'Femme', value: 0 },
+  { label: 'Homme', value: 1 },
+]
+
+const level = [
+  { label: 'Débutant', value: 0 },
+  { label: 'Intermédiaire', value: 1 },
+  { label: 'Avancé', value: 1 },
+]
+
 export default class Screen extends React.Component {
   constructor(props) {
     super(props)
@@ -20,30 +31,49 @@ export default class Screen extends React.Component {
       lastname: '',
       weight: '',
       height: '',
-      gender: '',
+      gender: gender[0].label,
       page: 0,
       forme: 0,
       repas: 1,
-      level: '',
+      level: level[0].label,
       objectif: null,
     }
     this.swiperRef = React.createRef()
   }
+
+  page1_validate() {
+    const { firstname, lastname, weight, height, gender } = this.state
+    if (firstname === '' && lastname === '' && weight === '' && height === '') {
+      alert('Vérifier que dans les champ de saisit ne sont pas vide')
+    }
+    if (gender === '') {
+      alert("Vérifier d'avoir selectionné le bouton radio")
+    }
+    if (
+      firstname !== '' &&
+      lastname !== '' &&
+      weight !== '' &&
+      height !== '' &&
+      gender !== ''
+    ) {
+      this.swiperRef.current.goToNext()
+    }
+  }
+
+  page3_validate() {
+    const { objectif } = this.state
+    if (objectif === null) {
+      alert("Vérifier d'avoir cliquer sur l'objectif")
+    }
+    if (objectif !== null) {
+    }
+  }
+
   render() {
     const { height, width } = Dimensions.get('window')
     const box_count = 3
     const box_height = height / box_count
 
-    const gender = [
-      { label: 'Femme', value: 0 },
-      { label: 'Homme', value: 1 },
-    ]
-
-    const level = [
-      { label: 'Débutant', value: 0 },
-      { label: 'Intermédiaire', value: 1 },
-      { label: 'Avancé', value: 1 },
-    ]
     return (
       <View style={slider.container}>
         <Swiper
@@ -88,7 +118,6 @@ export default class Screen extends React.Component {
                   onChangeText={(firstname) => {
                     this.setState({ firstname })
                   }}
-                  value={this.state.firstname}
                 />
               </View>
               <View style={slider.border_container_input}></View>
@@ -100,7 +129,6 @@ export default class Screen extends React.Component {
                   onChangeText={(lastname) => {
                     this.setState({ lastname })
                   }}
-                  value={this.state.lastname}
                 />
               </View>
               <View style={slider.border_container_input}></View>
@@ -112,7 +140,6 @@ export default class Screen extends React.Component {
                   onChangeText={(weight) => {
                     this.setState({ weight })
                   }}
-                  value={this.state.weight}
                 />
               </View>
               <View style={slider.border_container_input}></View>
@@ -124,7 +151,6 @@ export default class Screen extends React.Component {
                   onChangeText={(height) => {
                     this.setState({ height })
                   }}
-                  value={this.state.height}
                 />
               </View>
               <View style={slider.espacement_btn_radio}></View>
@@ -147,9 +173,7 @@ export default class Screen extends React.Component {
               <View style={slider.border_container}>
                 <TouchableOpacity
                   style={slider.button}
-                  onPress={() => {
-                    this.swiperRef.current.goToNext()
-                  }}
+                  onPress={() => this.page1_validate()}
                 >
                   <Text style={slider.text_button}>Suivant</Text>
                 </TouchableOpacity>
@@ -248,9 +272,7 @@ export default class Screen extends React.Component {
               <View style={slider.btn_2_next}>
                 <TouchableOpacity
                   style={slider.button}
-                  onPress={() => {
-                    this.swiperRef.current.goToNext()
-                  }}
+                  onPress={() => this.swiperRef.current.goToNext()}
                 >
                   <Text style={slider.text_button}>Suivant</Text>
                 </TouchableOpacity>
@@ -275,7 +297,7 @@ export default class Screen extends React.Component {
               />
             </View>
             <View style={slider.border_title}></View>
-            <View style={slider.view_title}>
+            <View>
               <Text style={slider.title}>Ton objectif </Text>
             </View>
             <View style={slider.border_espacement_title}></View>
@@ -320,9 +342,7 @@ export default class Screen extends React.Component {
             <View style={slider.espacement_btn_validate}>
               <TouchableOpacity
                 style={slider.button}
-                onPress={() => {
-                  this.swiperRef.current.goToNext()
-                }}
+                onPress={() => this.page3_validate()}
               >
                 <Text style={slider.text_button}>Terminer</Text>
               </TouchableOpacity>

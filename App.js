@@ -8,7 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import SplashScreen from './screens/SplashScreen'
 import Questionnaire from './screens/Questionnaire'
-import ValidationQuestionnaire from './screens/ValidationQuestionnaire'
+import Validation_Questionnaire from './screens/Validation_Questionnaire'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -42,12 +42,15 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Questionnaire">
+        <Stack.Navigator
+          headerMode="none"
+          initialRouteName="Validation Questionnaire"
+        >
           <Stack.Screen name="Spash Screen" component={SplashScreen} />
           <Stack.Screen name="Questionnaire" component={Questionnaire} />
           <Stack.Screen
             name="Validation Questionnaire"
-            component={ValidationQuestionnaire}
+            component={Validation_Questionnaire}
           />
         </Stack.Navigator>
       </NavigationContainer>
