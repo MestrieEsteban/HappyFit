@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dimensions, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import redirection from '../css/style_redirection'
 
 export default class SplashScreen extends Component {
@@ -9,10 +9,6 @@ export default class SplashScreen extends Component {
   }
 
   render() {
-    const { height } = Dimensions.get('window')
-    const box_count = 3
-    const box_height = height / box_count
-
     return (
       <View style={redirection.container}>
         <View style={redirection.border_container}></View>

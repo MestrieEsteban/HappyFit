@@ -1,4 +1,6 @@
-module.exports = {
+import { StyleSheet } from 'react-native'
+
+export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -24,4 +26,4 @@ module.exports = {
     width: 400,
     height: 400,
   },
-}
+})

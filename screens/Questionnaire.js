@@ -1,6 +1,5 @@
 import React from 'react'
-import {
-  Dimensions,
+import {Dimensions,
   Text,
   TextInput,
   View,
@@ -11,6 +10,7 @@ import Swiper from 'react-native-web-swiper'
 import slider from '../css/style_carousel'
 import RadioForm from 'react-native-simple-radio-button'
 import Slider from 'react-native-slider'
+import Menu from '../components/menu'
 
 const gender = [
   { label: 'Femme', value: 0 },
@@ -61,19 +61,23 @@ export default class Screen extends React.Component {
   }
 
   page3_validate() {
-    const { objectif } = this.state
+    const { objectif, firstname, lastname, weight, height, gender } = this.state
     if (objectif === null) {
       alert("Vérifier d'avoir cliquer sur l'objectif")
     }
-    if (objectif !== null) {
+    if (
+      objectif !== null &&
+      firstname !== '' &&
+      lastname !== '' &&
+      weight !== '' &&
+      height !== '' &&
+      gender !== ''
+    ) {
+      this.props.navigation.navigate('Validation Questionnaire')
     }
   }
 
   render() {
-    const { height, width } = Dimensions.get('window')
-    const box_count = 3
-    const box_height = height / box_count
-
     return (
       <View style={slider.container}>
         <Swiper
@@ -179,6 +183,8 @@ export default class Screen extends React.Component {
                 </TouchableOpacity>
               </View>
             </View>
+            <Menu />
+
           </View>
           {/* page 2 */}
           <View style={slider.view_container}>

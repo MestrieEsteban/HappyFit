@@ -44,7 +44,7 @@ export default class App extends Component {
       <NavigationContainer>
         <Stack.Navigator
           headerMode="none"
-          initialRouteName="Validation Questionnaire"
+          initialRouteName="Questionnaire"
         >
           <Stack.Screen name="Spash Screen" component={SplashScreen} />
           <Stack.Screen name="Questionnaire" component={Questionnaire} />

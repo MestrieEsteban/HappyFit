@@ -57,7 +57,6 @@
     "husky": "^4.2.3",
     "jest-expo": "~36.0.1",
     "prettier": "^2.0.2",
-    "react-native-indicator": "^1.2.0",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-swiper": "^1.6.0",
     "react-native-web-swiper": "^2.1.3"

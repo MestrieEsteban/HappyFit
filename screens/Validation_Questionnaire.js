@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dimensions, Text, View, Image } from 'react-native'
+import {Text, View, Image } from 'react-native'
 import validate from '../css/style_validate'
 
 export default class Validation_Questionnaire extends Component {
@@ -9,10 +9,6 @@ export default class Validation_Questionnaire extends Component {
   }
 
   render() {
-    const { height } = Dimensions.get('window')
-    const box_count = 3
-    const box_height = height / box_count
-
     return (
       <View style={validate.container}>
         <View style={validate.border_title}></View>
