@@ -10,7 +10,6 @@ import Swiper from 'react-native-web-swiper'
 import slider from '../css/style_carousel'
 import RadioForm from 'react-native-simple-radio-button'
 import Slider from 'react-native-slider'
-import Menu from '../components/menu'
 
 const gender = [
   { label: 'Femme', value: 0 },
@@ -183,8 +182,6 @@ export default class Screen extends React.Component {
                 </TouchableOpacity>
               </View>
             </View>
-            <Menu />
-
           </View>
           {/* page 2 */}
           <View style={slider.view_container}>
