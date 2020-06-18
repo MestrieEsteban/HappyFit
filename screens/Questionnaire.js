@@ -1,12 +1,5 @@
-import React from 'react'
-import {Dimensions,
-  Text,
-  TextInput,
-  View,
-  Image,
-  TouchableOpacity,
-} from 'react-native'
-import Swiper from 'react-native-web-swiper'
+import React, { Component } from 'react'
+import { Text, TextInput, View, Image, TouchableOpacity } from 'react-native'
 import slider from '../css/style_carousel'
 import RadioForm from 'react-native-simple-radio-button'
 import Slider from 'react-native-slider'
@@ -22,7 +15,7 @@ const level = [
   { label: 'Avancé', value: 1 },
 ]
 
-export default class Screen extends React.Component {
+export default class Questionnaire extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,13 +24,12 @@ export default class Screen extends React.Component {
       weight: '',
       height: '',
       gender: gender[0].label,
-      page: 0,
+      page: 1,
       forme: 0,
       repas: 1,
       level: level[0].label,
       objectif: null,
     }
-    this.swiperRef = React.createRef()
   }
 
   page1_validate() {
@@ -55,7 +47,7 @@ export default class Screen extends React.Component {
       height !== '' &&
       gender !== ''
     ) {
-      this.swiperRef.current.goToNext()
+      this.setState({ page: 2 })
     }
   }
 
@@ -77,19 +69,12 @@ export default class Screen extends React.Component {
   }
 
   render() {
+    const { page } = this.state
+
     return (
       <View style={slider.container}>
-        <Swiper
-          ref={this.swiperRef}
-          controlsProps={{
-            gesturesEnabled: false,
-            dotsTouchable: false,
-            dotsPos: false,
-            prevPos: false,
-            nextPos: false,
-          }}
-        >
           {/* page 1 */}
+        {page === 1 ? (
           <View style={slider.view_container}>
             <View style={slider.border_container}></View>
             <View style={slider.espacement_progression_button}>
@@ -182,8 +167,9 @@ export default class Screen extends React.Component {
                 </TouchableOpacity>
               </View>
             </View>
-          </View>
+          </View>):(<View></View>)}
           {/* page 2 */}
+        {page === 2 ? (
           <View style={slider.view_container}>
             <View style={slider.border_container}></View>
             <View style={slider.espacement_progression_button}>
@@ -275,15 +261,17 @@ export default class Screen extends React.Component {
               <View style={slider.btn_2_next}>
                 <TouchableOpacity
                   style={slider.button}
-                  onPress={() => this.swiperRef.current.goToNext()}
+                  onPress={() => this.setState({ page: 3 })}
                 >
                   <Text style={slider.text_button}>Suivant</Text>
                 </TouchableOpacity>
               </View>
             </View>
-          </View>
+          </View>):(<View></View>)}
           {/* page 3 */}
-          <View style={slider.view_container}>
+        {page === 3 ? (
+
+            <View style={slider.view_container}>
             <View style={slider.border_slider}></View>
             <View style={slider.espacement_progression_button}>
               <Image
@@ -350,8 +338,7 @@ export default class Screen extends React.Component {
                 <Text style={slider.text_button}>Terminer</Text>
               </TouchableOpacity>
             </View>
-          </View>
-        </Swiper>
+            </View>):(<View></View>)}
       </View>
     )
   }
