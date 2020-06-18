@@ -39,7 +39,7 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
-          <Stack.Screen name="Spash Screen" component={SplashScreen} />
+          <Stack.Screen name="SpashScreen" component={SplashScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     )
