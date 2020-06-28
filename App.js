@@ -10,6 +10,8 @@ import SplashScreen from './screens/SplashScreen'
 import Questionnaire from './screens/Questionnaire'
 import Validation_Questionnaire from './screens/Validation_Questionnaire'
 import Introduction from './screens/Introduction'
+import Chargement_Programme from './screens/Chargement_Programme'
+import Nouveau_Programme from './screens/Nouveau_Programme'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -43,7 +45,7 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Introduction">
+        <Stack.Navigator headerMode="none" initialRouteName="Nouveau Programme">
           <Stack.Screen name="Splash Screen" component={SplashScreen} />
           <Stack.Screen name="Questionnaire" component={Questionnaire} />
           <Stack.Screen
@@ -51,6 +53,14 @@ export default class App extends Component {
             component={Validation_Questionnaire}
           />
           <Stack.Screen name="Introduction" component={Introduction} />
+          <Stack.Screen
+            name="Chargement Programme"
+            component={Chargement_Programme}
+          />
+          <Stack.Screen
+            name="Nouveau Programme"
+            component={Nouveau_Programme}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     )

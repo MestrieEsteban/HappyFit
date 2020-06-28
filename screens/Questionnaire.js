@@ -73,7 +73,7 @@ export default class Questionnaire extends Component {
 
     return (
       <View style={slider.container}>
-          {/* page 1 */}
+        {/* page 1 */}
         {page === 1 ? (
           <View style={slider.view_container}>
             <View style={slider.border_container}></View>
@@ -167,8 +167,11 @@ export default class Questionnaire extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-          </View>):(<View></View>)}
-          {/* page 2 */}
+          </View>
+        ) : (
+          <View></View>
+        )}
+        {/* page 2 */}
         {page === 2 ? (
           <View style={slider.view_container}>
             <View style={slider.border_container}></View>
@@ -267,11 +270,13 @@ export default class Questionnaire extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-          </View>):(<View></View>)}
-          {/* page 3 */}
+          </View>
+        ) : (
+          <View></View>
+        )}
+        {/* page 3 */}
         {page === 3 ? (
-
-            <View style={slider.view_container}>
+          <View style={slider.view_container}>
             <View style={slider.border_slider}></View>
             <View style={slider.espacement_progression_button}>
               <Image
@@ -338,7 +343,10 @@ export default class Questionnaire extends Component {
                 <Text style={slider.text_button}>Terminer</Text>
               </TouchableOpacity>
             </View>
-            </View>):(<View></View>)}
+          </View>
+        ) : (
+          <View></View>
+        )}
       </View>
     )
   }
