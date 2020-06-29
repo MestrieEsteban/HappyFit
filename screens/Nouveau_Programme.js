@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
+import style_list_programme from '../css/style_new_programme'
 
 export default class Nouveau_Programme extends Component {
   constructor(props) {
@@ -87,66 +88,46 @@ export default class Nouveau_Programme extends Component {
   }
 
   render() {
-    const height = Dimensions.get('window').height
-    const width = Dimensions.get('window').width
 
     return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
-        <View style={{ flex: 2 }}></View>
-        <View style={{ flex: 2.5 }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>
-            Nouveau Programme
-          </Text>
+      <View style={style_list_programme.container}>
+        <View style={style_list_programme.border_container}></View>
+        <View style={style_list_programme.border_title}>
+          <Text style={style_list_programme.title_text}>Nouveau Programme</Text>
         </View>
-        <View style={{ flex: 2 }}></View>
+        <View style={style_list_programme.border_container}></View>
         {this.state.liste.length > 0 ? (
           <FlatList
             data={this.state.liste}
-            style={{ height: height / 1.5 }}
+            style={style_list_programme.heigth_list}
             renderItem={({ item }) => (
               <View>
-                <View
-                  style={{
-                    borderWidth: 1,
-                    borderColor: '#3598DA',
-                    backgroundColor: '#3598DA',
-                    width: 200,
-                    height: 30,
-                  }}
-                >
-                  <View style={{ flex: 0.2 }}></View>
-                  <View
-                    style={{
-                      flex: 1,
-                      flexDirection: 'row',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Text style={{ color: 'white' }}>{item.exercise} </Text>
-                    <Text style={{ color: 'white' }}>{item.muscle}</Text>
+                <View style={style_list_programme.border_up}>
+                  <View style={style_list_programme.border_text_up}></View>
+                  <View style={style_list_programme.placement_text_up}>
+                    <Text style={style_list_programme.text_up}>
+                      {item.exercise}{' '}
+                    </Text>
+                    <Text style={style_list_programme.text_up}>
+                      {item.muscle}
+                    </Text>
                   </View>
                 </View>
-                <View
-                  style={{
-                    borderWidth: 1,
-                    borderColor: '#EEEEEE',
-                    backgroundColor: '#EEEEEE',
-                    width: 200,
-                    height: 110,
-                  }}
-                >
-                  <View style={{ flex: 1, flexDirection: 'column' }}>
-                    <View style={{ flex: 0.3 }}></View>
-                    <Text style={{ flex: 1 }}>
+                <View style={style_list_programme.border_down}>
+                  <View style={style_list_programme.placement_text_down}>
+                    <View style={style_list_programme.border_text_down}></View>
+                    <Text style={style_list_programme.text_down}>
                       Nombre de série: {item.serie}
                     </Text>
-                    <Text style={{ flex: 1 }}>
+                    <Text style={style_list_programme.text_down}>
                       Nombre de répétitions: {item.repetition}
                     </Text>
-                    <Text style={{ flex: 1 }}>Temp de pause: {item.pause}</Text>
+                    <Text style={style_list_programme.text_down}>
+                      Temp de pause: {item.pause}
+                    </Text>
                   </View>
                 </View>
-                <View style={{ marginTop: height / 25 }}></View>
+                <View style={style_list_programme.espacement_liste}></View>
               </View>
             )}
           />
@@ -154,10 +135,10 @@ export default class Nouveau_Programme extends Component {
           <View></View>
         )}
         {this.state.page + 3 != this.state.data.length ? (
-          <View style={{ flex: 5 }}>
+          <View style={style_list_programme.border_arrow}>
             <TouchableOpacity onPress={() => this.update()}>
               <FontAwesome
-                style={{ marginLeft: width / 50}}
+                style={style_list_programme.espacement_arrow}
                 name="arrow-down"
                 size={30}
                 color="black"
@@ -165,12 +146,12 @@ export default class Nouveau_Programme extends Component {
             </TouchableOpacity>
           </View>
         ) : (
-          <View style={{ flex: 5 }}></View>
+          <View style={style_list_programme.border_arrow}></View>
         )}
-        <View style={{ flex: 7, flexDirection: 'row' }}>
+        <View style={style_list_programme.border_check}>
           <Entypo name="cross" size={65} color="black" />
           <FontAwesome
-            style={{ marginLeft: width / 2 }}
+            style={style_list_programme.espacement_check}
             name="check"
             size={50}
             color="black"
