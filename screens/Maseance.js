@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {Text, View,TouchableHighlight,Dimensions, Button} from 'react-native'
 import maseance from '../css/style_maseance'
 import { TouchableOpacity } from 'react-native-gesture-handler'

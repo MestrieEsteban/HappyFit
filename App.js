@@ -5,12 +5,16 @@ import { Ionicons } from '@expo/vector-icons'
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-/* totes les Pages*/
+/* toutes les Pages*/
 import SplashScreen from './screens/SplashScreen'
 import Questionnaire from './screens/Questionnaire'
 import Validation_Questionnaire from './screens/Validation_Questionnaire'
 import Dashboard from './screens/Dashboad'
 import Maseance from './screens/Maseance'
+import Suiveseance from './screens/Suivieseance'
+// import Editexercice from './screens/Editexercice'
+// import Choixexercice from './screens/Choixexercice'
+// import Ajoutexercice from './screens/Ajoutexercice'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -45,6 +49,7 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator headerMode="none" initialRouteName="Overflow">
+          <Stack.Screen name="Suiveseance" component={Suiveseance} />
           <Stack.Screen name="Maseance" component={Maseance} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Spash Screen" component={SplashScreen} />
