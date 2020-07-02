@@ -24,6 +24,7 @@ export default StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: 'white',
     },
+    
     texte:{
         fontFamily: "arial",
         fontSize: 20,
