@@ -64,7 +64,9 @@ export default class Questionnaire extends Component {
       height !== '' &&
       gender !== ''
     ) {
-      this.props.navigation.navigate('Validation Questionnaire')
+      this.props.navigation.replace('Mes Programmes', {
+        loading: 'questionnaire',
+      })
     }
   }
 
