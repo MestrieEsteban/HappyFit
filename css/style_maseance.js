@@ -63,22 +63,23 @@ export default StyleSheet.create({
 
       ButtonChrono: {
         fontSize: 15,
-        color: "#fff",
+        color: "black",
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase"
       }, 
 
-      appButtonchrono: {
-        elevation: 8,
-        backgroundColor: "red",
-        borderBottomColor: 'black',
-        borderRadius: 10,
-        marginLeft: 0,
-        marginTop: 50,
-        marginRight: 50,
-        paddingVertical: 10,
-        paddingHorizontal:15,
+      appButtonchrono: { 
+        borderRadius: 15,
+        borderWidth: 2,
+        borderColor: 'black',
+        backgroundColor: 'white',
+        height: 40,
+        width: 150,
+        marginButtom: 0,
+        marginTop: 0,
+        marginLeft: -30,
+        marginRigth: 0,        
       },
 
       container2:{
@@ -94,8 +95,8 @@ export default StyleSheet.create({
         alternativeLayoutButtonContainer: {
             marginTop: 20,
             marginButtom: 0,
-            marginLeft: 40,
-            marginRigth: -10,
+            marginLeft: 50,
+            marginRigth: 0,
             flexDirection: 'row',
             justifyContent: 'space-between',
             textAlign: 'center',

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Text, View,TouchableHighlight,Dimensions, Button} from 'react-native'
+import {Text, View, TouchableOpacity, Button} from 'react-native'
 import maseance from '../css/style_maseance'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer'
 
 const handleTimerComplete = () => alert("Custom Completion Function");
@@ -80,15 +79,15 @@ export default class Maseance extends Component {
           <View style={maseance.container3}>
               <View style={maseance.alternativeLayoutButtonContainer}>
 
-                      <TouchableHighlight style={maseance.appButtonchrono} onPress={this.startStopStopWatch}>
+                      <TouchableOpacity style={maseance.appButtonchrono} onPress={this.startStopStopWatch}>
                         <Text style={maseance.ButtonChrono}>
                             {!this.state.isStopwatchStart ? "START" : "STOP"}
                         </Text>
-                      </TouchableHighlight>
+                      </TouchableOpacity>
 
-                      <TouchableHighlight style={maseance.appButtonchrono} onPress={this.resetStopwatch}>
+                      <TouchableOpacity style={maseance.appButtonchrono} onPress={this.resetStopwatch}>
                         <Text style={maseance.ButtonChrono}>RESET</Text>
-                      </TouchableHighlight>
+                      </TouchableOpacity>
               </View>
           </View>
 
