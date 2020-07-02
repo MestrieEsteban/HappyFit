@@ -12,8 +12,8 @@ import Validation_Questionnaire from './screens/Validation_Questionnaire'
 import Dashboard from './screens/Dashboad'
 import Maseance from './screens/Maseance'
 import Suiveseance from './screens/Suivieseance'
-// import Editexercice from './screens/Editexercice'
-// import Choixexercice from './screens/Choixexercice'
+import Editexercice from './screens/Editexercice'
+import Choixexercice from './screens/Choixexercice'
 // import Ajoutexercice from './screens/Ajoutexercice'
 
 const Stack = createStackNavigator()
@@ -49,6 +49,8 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator headerMode="none" initialRouteName="Overflow">
+          <Stack.Screen name="Choixexercice" component={Choixexercice} />
+          <Stack.Screen name="Editexercice" component={Editexercice} />
           <Stack.Screen name="Suiveseance" component={Suiveseance} />
           <Stack.Screen name="Maseance" component={Maseance} />
           <Stack.Screen name="Dashboard" component={Dashboard} />
