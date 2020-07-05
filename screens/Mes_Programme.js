@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import {
-  Text,
-  View,
   FlatList,
-  TouchableOpacity,
   Image,
+  Text,
+  TouchableOpacity,
   TouchableWithoutFeedback,
+  View,
 } from 'react-native'
 import {
   AntDesign,
@@ -76,7 +76,6 @@ export default class Mes_Programme extends Component {
           label: 'D',
         },
       ],
-      page: 0,
       timePassed: false,
       show: false,
       show_list: false,
@@ -90,7 +89,7 @@ export default class Mes_Programme extends Component {
   }
 
   status = () => {
-    if (this.props.router !== undefined) {
+    if (this.props.route.params !== undefined) {
       this.setState({ status: true })
       setTimeout(() => this.setState({ timePassed: true }), 5000)
     }
@@ -301,6 +300,11 @@ export default class Mes_Programme extends Component {
             <View style={style_programme.margin_list}>
               {!item.show ? (
                 <TouchableWithoutFeedback
+                  onPress={() =>
+                    this.props.navigation.replace('Details Programmes', {
+                      id: item.id,
+                    })
+                  }
                   onLongPress={() => this.update(item.id)}
                 >
                   <View style={style_programme.option_programme_hidden}>
@@ -327,6 +331,11 @@ export default class Mes_Programme extends Component {
                 </TouchableWithoutFeedback>
               ) : (
                 <TouchableWithoutFeedback
+                  onPress={() =>
+                    this.props.navigation.replace('Details Programmes', {
+                      id: item.id,
+                    })
+                  }
                   onLongPress={() => this.update(item.id)}
                 >
                   <View style={style_programme.option_programme_show}>
@@ -413,7 +422,7 @@ export default class Mes_Programme extends Component {
           )}
         />
         <View style={style_programme.border_add}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.props.navigation.replace('Programme Choix Muscle')}>
             <AntDesign name="pluscircleo" size={30} color="black" />
           </TouchableOpacity>
         </View>

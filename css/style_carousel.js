@@ -124,7 +124,6 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.5,
     shadowRadius: 1.0,
-
     elevation: 1,
   },
   text_button_objectif: {

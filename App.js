@@ -11,6 +11,8 @@ import Questionnaire from './screens/Questionnaire'
 import Introduction from './screens/Introduction'
 import Nouveau_Programme from './screens/Nouveau_Programme'
 import Mes_Programme from './screens/Mes_Programme'
+import Details_Programme from './screens/Details_Programme'
+import Programme_Choix_Muscle from './screens/Programme_Choix_Muscle'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -44,7 +46,10 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Mes Programmes">
+        <Stack.Navigator
+          headerMode="none"
+          initialRouteName="Mes Programmes"
+        >
           <Stack.Screen name="Splash Screen" component={SplashScreen} />
           <Stack.Screen name="Questionnaire" component={Questionnaire} />
           <Stack.Screen name="Introduction" component={Introduction} />
@@ -52,7 +57,15 @@ export default class App extends Component {
             name="Nouveau Programme"
             component={Nouveau_Programme}
           />
-         <Stack.Screen name="Mes Programmes" component={Mes_Programme} />
+          <Stack.Screen name="Mes Programmes" component={Mes_Programme} />
+          <Stack.Screen
+            name="Details Programmes"
+            component={Details_Programme}
+          />
+          <Stack.Screen
+            name="Programme Choix Muscle"
+            component={Programme_Choix_Muscle}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     )

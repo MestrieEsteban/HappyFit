@@ -19,15 +19,34 @@ export default StyleSheet.create({
   margin_title_2: {
     marginLeft: layout.window.line - 80,
   },
+  margin_title_4: {
+    marginLeft: layout.window.line - 120,
+  },
   border_list: {
-    flex: 1.5,
+    flex: 0.7,
+  },
+  border_list_2: {
+    flex: 0.2,
   },
   border_title: {
     flex: 2.5,
   },
   border_title_2: {
-    flex: 1.5,
+    flex: 0.8,
     flexDirection: 'row',
+  },
+  border_title_3: {
+    flex: 0.3,
+    flexDirection: 'row',
+  },
+  margin_title_3: {
+    marginLeft: layout.window.width / 7,
+  },
+  border_arrow_title: {
+    marginLeft: 10,
+  },
+  border_before_arrow: {
+    marginRight: 50,
   },
   title_text: {
     fontSize: 20,
@@ -173,8 +192,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     marginLeft: layout.window.line / 1.2,
   },
+  border_add_2: {
+    flex: 0.8,
+    flexDirection: 'row',
+    marginLeft: layout.window.line / 1.2,
+  },
   border_menu: {
-    flex: 2.5,
+    flex: 1.8,
     flexDirection: 'row',
   },
   espacement_arrow: {

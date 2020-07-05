@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, TextInput, View, Image, TouchableOpacity } from 'react-native'
+import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import slider from '../css/style_carousel'
 import RadioForm from 'react-native-simple-radio-button'
 import Slider from 'react-native-slider'

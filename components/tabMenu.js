@@ -1,10 +1,10 @@
 import * as React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import {
-  FontAwesome,
   AntDesign,
-  Octicons,
+  FontAwesome,
   MaterialIcons,
+  Octicons,
 } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
 

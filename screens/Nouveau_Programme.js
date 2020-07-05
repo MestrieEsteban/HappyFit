@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
-import { FontAwesome } from '@expo/vector-icons'
-import { Entypo } from '@expo/vector-icons'
+import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
+import { Entypo, FontAwesome } from '@expo/vector-icons'
 import style_list_programme from '../css/style_programme'
 import validate from '../css/style_validate'
 

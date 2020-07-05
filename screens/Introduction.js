@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import GestureRecognizer, { swipeDirections } from 'react-native-swipe-gestures'
 import intro_style from '../css/style_introduction'
 
