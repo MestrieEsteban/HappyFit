@@ -2,41 +2,90 @@ import React, { Component } from 'react'
 import {
   Text,
   View,
-  Dimensions,
   FlatList,
   TouchableOpacity,
   Image,
+  TouchableWithoutFeedback,
 } from 'react-native'
-import { Entypo } from '@expo/vector-icons'
-import style_list_programme from '../css/style_new_programme'
-import validate from '../css/style_validate'
+import {
+  AntDesign,
+  Entypo,
+  FontAwesome5,
+  MaterialCommunityIcons,
+} from '@expo/vector-icons'
 
-export default class Mes_Programmes extends Component {
+import style_programme from '../css/style_programme'
+import validate from '../css/style_validate'
+import CheckBox from 'react-native-checkbox-component'
+import TabMenu from '../components/tabMenu'
+
+export default class Mes_Programme extends Component {
   constructor(props) {
     super(props)
     this.state = {
       programme: [
         {
           id: 1,
-          label: 'programme',
+          label: 'Programme',
+          show: false,
+          case_checked: [],
+          notification: 0,
         },
         {
           id: 2,
-          label: 'programme',
+          label: 'Programme',
+          show: false,
+          case_checked: [],
+          notification: 0,
         },
         {
           id: 3,
-          label: 'programme',
+          label: 'Programme',
+          show: false,
+          case_checked: [],
+          notification: 0,
+        },
+      ],
+      days: [
+        {
+          id: 1,
+          label: 'L',
+        },
+        {
+          id: 2,
+          label: 'M',
+        },
+        {
+          id: 3,
+          label: 'M',
+        },
+        {
+          id: 4,
+          label: 'J',
+        },
+        {
+          id: 5,
+          label: 'V',
+        },
+        {
+          id: 6,
+          label: 'S',
+        },
+        {
+          id: 7,
+          label: 'D',
         },
       ],
       page: 0,
-      index: 0,
-      status: false,
       timePassed: false,
+      show: false,
+      show_list: false,
+      status: false,
     }
   }
 
   componentDidMount() {
+    this.load_data()
     this.status()
   }
 
@@ -47,7 +96,7 @@ export default class Mes_Programmes extends Component {
     }
   }
 
-  loading() {
+  loading = () => {
     return (
       <View style={validate.container}>
         <View style={validate.border_title}></View>
@@ -66,67 +115,311 @@ export default class Mes_Programmes extends Component {
     )
   }
 
+  load_data = () => {
+    let check = []
+    for (let i in this.state.days) {
+      check.push({
+        id: this.state.days[i].id,
+        label: this.state.days[i].label,
+        checked: false,
+      })
+    }
+    let list_data = []
+    for (let i in this.state.programme) {
+      list_data.push({
+        id: this.state.programme[i].id,
+        label: this.state.programme[i].label,
+        show: this.state.programme[i].show,
+        case_checked: check,
+        notification: this.state.programme[i].notification,
+      })
+    }
+    this.setState({ programme: list_data })
+  }
+
+  update(id) {
+    let list_data = []
+    if (!this.state.show) {
+      this.setState({ show: true })
+    } else {
+      this.setState({ show: false })
+    }
+
+    for (let i = 0; i < this.state.programme.length; i++) {
+      if (i === id - 1) {
+        list_data.push({
+          id: this.state.programme[i].id,
+          label: this.state.programme[i].label,
+          show: this.state.show,
+          case_checked: this.state.programme[i].case_checked,
+          notification: this.state.programme[i].notification,
+        })
+      } else {
+        list_data.push({
+          id: this.state.programme[i].id,
+          label: this.state.programme[i].label,
+          show: this.state.programme[i].show,
+          case_checked: this.state.programme[i].case_checked,
+          notification: this.state.programme[i].notification,
+        })
+      }
+    }
+
+    this.setState({ programme: list_data })
+
+    let compteur = 0
+    for (let i = 0; i < this.state.programme.length; i++) {
+      if (this.state.programme[i].show) {
+        compteur++
+      }
+    }
+
+    if (compteur !== 0) {
+      this.setState({ show_list: true })
+    } else {
+      this.setState({ show_list: false })
+    }
+  }
+
+  check_days(program, check_id) {
+    let list_data = []
+    let check = []
+    for (let i = 0; i < this.state.days.length; i++) {
+      if (i === check_id - 1) {
+        if (!this.state.programme[program - 1].case_checked[i].checked) {
+          check.push({
+            id: this.state.programme[program - 1].case_checked[i].id,
+            label: this.state.programme[program - 1].case_checked[i].label,
+            checked: true,
+          })
+        } else {
+          check.push({
+            id: this.state.programme[program - 1].case_checked[i].id,
+            label: this.state.programme[program - 1].case_checked[i].label,
+            checked: false,
+          })
+        }
+      } else {
+        check.push({
+          id: this.state.programme[program - 1].case_checked[i].id,
+          label: this.state.programme[program - 1].case_checked[i].label,
+          checked: this.state.programme[program - 1].case_checked[i].checked,
+        })
+      }
+    }
+
+    for (let i = 0; i < this.state.programme.length; i++) {
+      if (i === program - 1) {
+        list_data.push({
+          id: this.state.programme[i].id,
+          label: this.state.programme[i].label,
+          show: this.state.programme[i].show,
+          case_checked: check,
+          notification: this.state.programme[i].notification,
+        })
+      } else {
+        list_data.push({
+          id: this.state.programme[i].id,
+          label: this.state.programme[i].label,
+          show: this.state.programme[i].show,
+          case_checked: this.state.programme[i].case_checked,
+          notification: this.state.programme[i].notification,
+        })
+      }
+    }
+    this.setState({ programme: list_data })
+  }
+
+  notif(id, stats) {
+    let list_data = []
+    for (let i in this.state.programme) {
+      list_data.push({
+        id: this.state.programme[i].id,
+        label: this.state.programme[i].label,
+        show: this.state.programme[i].show,
+        case_checked: this.state.programme[i].case_checked,
+        notification: this.state.programme[i].notification,
+      })
+    }
+    if (stats) {
+      list_data[id - 1].notification++
+    } else {
+      if (list_data[id - 1].notification !== 0) {
+        list_data[id - 1].notification--
+      }
+    }
+
+    this.setState({ programme: list_data })
+  }
+  Back() {
+    let list_data = []
+    for (let i in this.state.programme) {
+      list_data.push({
+        id: this.state.programme[i].id,
+        label: this.state.programme[i].label,
+        show: false,
+        case_checked: this.state.programme[i].case_checked,
+        notification: this.state.programme[i].notification,
+      })
+    }
+
+    this.setState({ programme: list_data })
+    this.setState({ show_list: false })
+  }
+
   list_programme() {
-    const width = Dimensions.get('window').width
-    const height = Dimensions.get('window').height
     return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
-        <View style={{ flex: 0.2 }}></View>
-        <View style={{ flex: 0.3 }}>
-          <View
-            style={{
-              flex: 0.9,
-              flexDirection: 'row',
-              justifyContent: 'center',
-            }}
-          >
-            <Text style={{ fontSize: 30, fontWeight: 'bold', marginLeft: 20 }}>
-              Mes programmes
-            </Text>
+      <View style={style_programme.container}>
+        <View style={style_programme.border_list}></View>
+        {!this.state.show_list ? (
+          <View style={style_programme.border_title_2}>
+            <Text style={style_programme.title_text}>Mes programme</Text>
             <Entypo
-              style={{ marginLeft: 20 }}
+              style={style_programme.overflow_programme}
               name="dots-three-vertical"
-              size={30}
+              size={25}
               color="black"
             />
           </View>
-          <View
-            style={{ backgroundColor: 'black', height: 1, width: width / 2 }}
-          />
-        </View>
-        <View style={{ flex: 0.1 }}></View>
+        ) : (
+          <View style={style_programme.placement_title_2}>
+            <TouchableOpacity onPress={() => this.Back()}>
+              <FontAwesome5 name="arrow-left" size={30} color="black" />
+            </TouchableOpacity>
+            <View style={style_programme.margin_title_2}></View>
+            <TouchableOpacity onPress={() => this.Delete()}>
+              <MaterialCommunityIcons name="delete" size={30} color="black" />
+            </TouchableOpacity>
+          </View>
+        )}
+        <View style={style_programme.line_title} />
+        <View style={style_programme.border_list}></View>
         <FlatList
           data={this.state.programme}
-          style={style_list_programme.heigth_list}
+          style={style_programme.heigth_list}
           renderItem={({ item }) => (
-            <View>
-              <TouchableOpacity
-                style={{
-                  borderColor: '#3598DA',
-                  borderWidth: 1,
-                  backgroundColor: '#3598DA',
-                  width: width / 2 - 20,
-                  height: 40,
-                }}
-              >
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: 'left',
-                    marginLeft: 10,
-                    marginTop: 10,
-                  }}
+            <View style={style_programme.margin_list}>
+              {!item.show ? (
+                <TouchableWithoutFeedback
+                  onLongPress={() => this.update(item.id)}
                 >
-                  <Text style={{ color: 'white', fontSize: 20 }}>
-                    {item.label} {item.id}
-                  </Text>
+                  <View style={style_programme.option_programme_hidden}>
+                    <View style={style_programme.border_text_up}></View>
+                    <View style={style_programme.placement_programme}>
+                      <Text
+                        style={[
+                          style_programme.text_up,
+                          style_programme.size_text_up,
+                        ]}
+                      >
+                        {item.label}{' '}
+                      </Text>
+                      <Text
+                        style={[
+                          style_programme.text_up,
+                          style_programme.size_text_up,
+                        ]}
+                      >
+                        {item.id}
+                      </Text>
+                    </View>
+                  </View>
+                </TouchableWithoutFeedback>
+              ) : (
+                <TouchableWithoutFeedback
+                  onLongPress={() => this.update(item.id)}
+                >
+                  <View style={style_programme.option_programme_show}>
+                    <View style={style_programme.border_text_up}></View>
+                    <View style={style_programme.placement_programme}>
+                      <Text
+                        style={[
+                          style_programme.text_up,
+                          style_programme.size_text_up,
+                        ]}
+                      >
+                        {item.label}{' '}
+                      </Text>
+                      <Text
+                        style={[
+                          style_programme.text_up,
+                          style_programme.size_text_up,
+                        ]}
+                      >
+                        {item.id}
+                      </Text>
+                    </View>
+                  </View>
+                </TouchableWithoutFeedback>
+              )}
+              {item.show ? (
+                <View style={style_programme.color_border_down}>
+                  <View style={style_programme.placement_text_down}>
+                    <View style={style_programme.border_text_down}></View>
+                    <Text style={style_programme.text_2_down}> Planning </Text>
+                    <View style={style_programme.placement_checkbox}>
+                      {this.state.days.map((cb) => {
+                        return (
+                          <CheckBox
+                            key={cb.id}
+                            style={style_programme.margin_checkbox}
+                            checkedCheckBoxColor={'black'}
+                            leftText={cb.label}
+                            isChecked={item.case_checked[cb.id - 1].checked}
+                            onClick={() => this.check_days(item.id, cb.id)}
+                          />
+                        )
+                      })}
+                    </View>
+                    <View style={style_programme.placement_notification}>
+                      <Text style={style_programme.text_notification}>
+                        Notifications
+                      </Text>
+                      <View style={style_programme.border_increment_button}>
+                        <Text
+                          style={style_programme.border_compteur_notification}
+                        >
+                          {item.notification}
+                        </Text>
+                        <View style={style_programme.placement_compteur}>
+                          <TouchableOpacity
+                            onPress={() => this.notif(item.id, true)}
+                          >
+                            <AntDesign name="up" size={10} color="black" />
+                          </TouchableOpacity>
+                          <TouchableOpacity
+                            onPress={() => this.notif(item.id, false)}
+                          >
+                            <AntDesign name="down" size={10} color="black" />
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                      <Text> min avant</Text>
+                    </View>
+                    <View style={style_programme.placement_btn_validate}>
+                      <TouchableOpacity>
+                        <View style={style_programme.border_btn_valdate}>
+                          <Text> VALIDER </Text>
+                        </View>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
                 </View>
-              </TouchableOpacity>
-
-              <View style={{ marginTop: 20 }}></View>
+              ) : (
+                <View></View>
+              )}
+              <View style={style_programme.espacement_programme}></View>
             </View>
           )}
         />
+        <View style={style_programme.border_add}>
+          <TouchableOpacity>
+            <AntDesign name="pluscircleo" size={30} color="black" />
+          </TouchableOpacity>
+        </View>
+        <View style={style_programme.border_menu}>
+          <TabMenu />
+        </View>
       </View>
     )
   }

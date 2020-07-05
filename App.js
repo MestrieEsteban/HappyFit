@@ -8,7 +8,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import SplashScreen from './screens/SplashScreen'
 import Questionnaire from './screens/Questionnaire'
-import Validation_Questionnaire from './screens/Validation_Questionnaire'
 import Introduction from './screens/Introduction'
 import Nouveau_Programme from './screens/Nouveau_Programme'
 import Mes_Programme from './screens/Mes_Programme'
@@ -47,11 +46,7 @@ export default class App extends Component {
       <NavigationContainer>
         <Stack.Navigator headerMode="none" initialRouteName="Mes Programmes">
           <Stack.Screen name="Splash Screen" component={SplashScreen} />
-          <Stack.Screen name="Questionnaire" component={Questionnaire} />
-          <Stack.Screen
-            name="Validation Questionnaire"
-            component={Validation_Questionnaire}
-          />
+          <Stack.Screen name="Questionnaire" component={Questionnaire} />g
           <Stack.Screen name="Introduction" component={Introduction} />
           <Stack.Screen
             name="Nouveau Programme"

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, FlatList, TouchableOpacity, Image } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
-import style_list_programme from '../css/style_new_programme'
+import style_list_programme from '../css/style_programme'
 import validate from '../css/style_validate'
 
 export default class Nouveau_Programme extends Component {

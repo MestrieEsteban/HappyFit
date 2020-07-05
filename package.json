@@ -41,10 +41,13 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-elements": "^2.0.4",
     "react-native-gesture-handler": "~1.5.0",
+    "react-native-modals": "^0.19.9",
+    "react-native-numeric-input": "^1.8.3",
     "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "2.0.0-alpha.12",
     "react-native-slider": "^0.11.0",
     "react-native-swipe-gestures": "^1.0.5",
+    "react-native-vector-icons": "^6.7.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {
@@ -59,6 +62,8 @@
     "husky": "^4.2.3",
     "jest-expo": "~36.0.1",
     "prettier": "^2.0.2",
+    "react-native-check-box": "^2.1.7",
+    "react-native-checkbox-component": "^1.0.3",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-swiper": "^1.6.0",
     "react-native-web-swiper": "^2.1.3"
