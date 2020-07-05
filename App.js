@@ -46,13 +46,13 @@ export default class App extends Component {
       <NavigationContainer>
         <Stack.Navigator headerMode="none" initialRouteName="Mes Programmes">
           <Stack.Screen name="Splash Screen" component={SplashScreen} />
-          <Stack.Screen name="Questionnaire" component={Questionnaire} />g
+          <Stack.Screen name="Questionnaire" component={Questionnaire} />
           <Stack.Screen name="Introduction" component={Introduction} />
           <Stack.Screen
             name="Nouveau Programme"
             component={Nouveau_Programme}
           />
-          <Stack.Screen name="Mes Programmes" component={Mes_Programme} />
+         <Stack.Screen name="Mes Programmes" component={Mes_Programme} />
         </Stack.Navigator>
       </NavigationContainer>
     )
