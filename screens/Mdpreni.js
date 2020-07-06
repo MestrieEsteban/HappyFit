@@ -43,6 +43,7 @@ export default class Mdpreni extends Component {
 
         
         <View View style={mdpreni.container2}>
+            <View style={mdpreni.input}>
               <View style={mdpreni.input_back}>
                   <TextInput
                     placeholder="Mot de passe"
@@ -53,7 +54,6 @@ export default class Mdpreni extends Component {
                     }}/>
                 </View>
 
-                
                <View style={mdpreni.input_back}>
                   <TextInput
                     placeholder="Confimer mot de passe"
@@ -63,16 +63,17 @@ export default class Mdpreni extends Component {
                       this.setState({ confirpassword })
                     }}/>
                 </View>
+            </View> 
+                <View style={mdpreni.border_container}>
+                  <TouchableOpacity style={mdpreni.button} onPress={() => this.valider_Form()}>
+                    <Text style={mdpreni.text_button}>Valider</Text>
+                  </TouchableOpacity>
+                </View>
         </View>
 
 
-        <View style={mdpreni.container3}>
-          <View style={mdpreni.border_container}>
-            <TouchableOpacity style={mdpreni.button} onPress={() => this.valider_Form()}>
-              <Text style={mdpreni.text_button}>Valider</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+      
+        
 
       </View>
     )
