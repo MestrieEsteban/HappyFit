@@ -1,23 +1,28 @@
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   Text,
   View,
   Image,
-  Button,
+  TouchableOpacity
 } from 'react-native'
-class HomeScreen extends Component {
+
+import styles_home from '../css/style_home'
+
+export default class Home extends Component {
   render() {
     const { navigation } = this.props
     return (
-      <View style={styles.container}>
-        <Image
-          style={styles.image1}
-          source={require('./../assets/images/fit.jpg')}
-        />
+      <View style={styles_home.container}>
+        <View style={styles_home.view_image}>
+          <Image
+              style={styles_home.image1}
+              source={require('./../assets/images/logo.png')}
+          />
+        </View>
 
-        <View style={styles.text1}>
-          <Text style={{ textAlignVertical: 'center', textAlign: 'center' }}>
+
+        <View style={styles_home.placement_text}>
+          <Text>
             Happy Fit c’est une méthode pour être{'\n'}
             {'\n'}
             "heureux quel que soit son fit "{'\n'}
@@ -30,51 +35,25 @@ class HomeScreen extends Component {
             confiance en soi.
           </Text>
         </View>
-
-        <View style={styles.button1}>
-          <Button
-            onPress={() => navigation.navigate('Introduction')}
-            title="Inscription"
-            color="#000000"
-          />
-        </View>
-
-        <View style={styles.button2}>
-          <Button
-            onPress={() => navigation.navigate('Connexion')}
-            title="Connexion"
-            color="#000000"
-          />
+        <View style={styles_home.border_container}></View>
+        <View style={styles_home.view_button}>
+          <View style={styles_home.button}>
+          <TouchableOpacity style={styles_home.placement_button} onPress={()=>navigation.navigate('Introduction')}>
+            <Text style={styles_home.placement_btn_text}>
+              Inscription
+            </Text>
+          </TouchableOpacity>
+          </View>
+          <View style={styles_home.border_container}></View>
+          <View style={styles_home.button}>
+            <TouchableOpacity style={styles_home.placement_button} onPress={()=>navigation.navigate('Connexion')}>
+              <Text style={styles_home.placement_btn_text}>
+              Connexion
+            </Text>
+          </TouchableOpacity>
+          </View>
         </View>
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#FFFFFF',
-  },
-  image1: {
-    width: 350,
-    height: 350,
-  },
-  button1: {
-    height: 45,
-    borderRadius: 25,
-    justifyContent: 'center',
-    marginTop: 20,
-    alignItems: 'center',
-    backgroundColor: '#000000',
-  },
-  button2: {
-    height: 45,
-    borderRadius: 25,
-    justifyContent: 'center',
-    marginTop: 10,
-    alignItems: 'center',
-    backgroundColor: '#000000',
-  },
-})
-
-export default HomeScreen
