@@ -6,10 +6,8 @@ import { Ionicons } from '@expo/vector-icons'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
+import Home from './screens/Home'
 import ConnexionScreen from './screens/Connexion'
-import Introduction1Screen from './screens/Introduction1'
-import Introduction2Screen from './screens/Introduction2'
-import Introduction3Screen from './screens/Introduction3'
 import InscriptionScreen from './screens/Inscription'
 import MotdepasseoublieScreen from './screens/Motdepasseoublie'
 import EmailenvoyeScreen from './screens/Emailenvoye'
@@ -47,23 +45,9 @@ export default class App extends Component {
     }
 
     return (
-      <NavigationContainer>
+      <NavigationContainer initialRouteName="Inscription">
         <Stack.Navigator>
-          <Stack.Screen
-            name="Introduction1"
-            component={Introduction1Screen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Introduction2"
-            component={Introduction2Screen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="Introduction3"
-            component={Introduction3Screen}
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Connexion" component={ConnexionScreen} />
           <Stack.Screen name="Inscription" component={InscriptionScreen} />
           <Stack.Screen
