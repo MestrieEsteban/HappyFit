@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { Component } from 'react'
 import { Button, View, Text, Image, StyleSheet, TextInput } from 'react-native'
 
 function MotdepassechangeScreen({ navigation }) {

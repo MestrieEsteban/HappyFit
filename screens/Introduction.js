@@ -15,7 +15,7 @@ export default class Introduction extends Component {
   onSwipeLeft(gestureState) {
     this.setState({ myText: 'You swiped left!' })
     if (this.state.page === 3) {
-      this.props.navigation.replace('Splash Screen')
+      this.props.navigation.replace('Inscription')
     }
   }
 

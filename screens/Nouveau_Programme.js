@@ -11,7 +11,7 @@ export default class Nouveau_Programme extends Component {
       data: [
         {
           id: 1,
-          exercise: 'Curls hatère',
+          exercise: 'Curls haltère',
           muscle: 'Biceps',
           serie: 4,
           repetition: 40,
@@ -110,10 +110,10 @@ export default class Nouveau_Programme extends Component {
                   <View style={style_list_programme.border_text_up}></View>
                   <View style={style_list_programme.placement_text_up}>
                     <Text style={style_list_programme.text_up}>
-                      {item.exercise}{' '}
+                      {item.exercise}{' '}-{' '}
                     </Text>
                     <Text style={style_list_programme.text_up}>
-                      {item.muscle}
+                       {item.muscle}
                     </Text>
                   </View>
                 </View>

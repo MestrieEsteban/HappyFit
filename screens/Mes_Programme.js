@@ -464,7 +464,7 @@ export default class Mes_Programme extends Component {
                 <View style={style_modal.placement_title}>
                   <Text style={style_modal.size_title}>
                     {' '}
-                    Voulez supprimer le(s) programme(s)
+                    Voulez vous supprimer le(s) programme(s)
                   </Text>
                   <View style={style_modal.border_container}></View>
                   <View style={style_modal.placement_btn}>

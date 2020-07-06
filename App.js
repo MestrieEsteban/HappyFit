@@ -8,8 +8,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import SplashScreen from './screens/SplashScreen'
 import Home from './screens/Home'
-import Inscription from "./screens/Inscription";
-import Connexion from "./screens/Connexion"
+import Inscription from './screens/Inscription'
+import Connexion from './screens/Connexion'
 import Questionnaire from './screens/Questionnaire'
 import Introduction from './screens/Introduction'
 import Nouveau_Programme from './screens/Nouveau_Programme'
@@ -49,8 +49,11 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Splash Screen">
+        <Stack.Navigator headerMode="none">
           <Stack.Screen name="Splash Screen" component={SplashScreen} />
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Inscription" component={Inscription} />
+          <Stack.Screen name="Connexion" component={Connexion} />
           <Stack.Screen name="Questionnaire" component={Questionnaire} />
           <Stack.Screen name="Introduction" component={Introduction} />
           <Stack.Screen

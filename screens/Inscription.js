@@ -1,7 +1,7 @@
-import * as React from 'react'
+import React, { Component } from 'react'
 import { Button, View, Text, Image, StyleSheet, TextInput } from 'react-native'
 
-class InscriptionScreen extends React.Component {
+class InscriptionScreen extends Component {
   constructor(props) {
     super(props)
 

@@ -13,7 +13,7 @@ export default class SplashScreen extends Component {
     return (
       <TouchableWithoutFeedback
         style={redirection.container}
-        onPress={() => this.props.navigation.replace('Profil')}
+        onPress={() => this.props.navigation.replace('Home')}
       >
         <View style={style_redirection.view_container}>
           <View style={redirection.border_logo}>

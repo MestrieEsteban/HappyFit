@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { Component } from 'react'
 import {
   Button,
   View,
@@ -6,10 +6,9 @@ import {
   Image,
   StyleSheet,
   TextInput,
-  AsyncStorage,
 } from 'react-native'
 
-class ConnexionScreen extends React.Component {
+class ConnexionScreen extends Component {
   constructor(props) {
     super(props)
 
