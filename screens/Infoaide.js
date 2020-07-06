@@ -27,8 +27,7 @@ export default class Infoaide extends Component {
             <View>
               <Text
                 style={infoaide.underline}
-                onPress={() => this.navigation()}
-              >
+                onPress={() => this.navigation()}>
                 {' '}
                 <Entypo name="eye" size={24} color="black" /> Revoir
                 l'introduction{' '}

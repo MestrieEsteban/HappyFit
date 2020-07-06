@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Image,TouchableWithoutFeedback} from 'react-native'
 import redirection from '../css/style_redirection'
 
 export default class SplashScreen extends Component {
@@ -9,16 +9,20 @@ export default class SplashScreen extends Component {
   }
 
   render() {
+   
     return (
-      <View style={redirection.container}>
-        <View style={redirection.border_container}></View>
+      <TouchableWithoutFeedback style={redirection.container} onPress={() => this.props.navigation.replace('Profil')}>
+      <View>
+
         <View style={redirection.border_logo}>
-          <Text style={redirection.text_logo}>Logo</Text>
+          <Image style={redirection.logo} source={require('../assets/images/logo.png')}/>
         </View>
-        <View style={redirection.border_name}>
-          <Text style={redirection.text_name}>HappyFit</Text>
+
+        <View style={redirection.border_name} >
+          <Text style={redirection.text_name} >HappyFit</Text>
         </View>
       </View>
+      </TouchableWithoutFeedback>
     )
   }
 }
