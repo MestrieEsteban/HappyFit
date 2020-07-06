@@ -7,6 +7,9 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import SplashScreen from './screens/SplashScreen'
+import Home from './screens/Home'
+import Inscription from "./screens/Inscription";
+import Connexion from "./screens/Connexion"
 import Questionnaire from './screens/Questionnaire'
 import Introduction from './screens/Introduction'
 import Nouveau_Programme from './screens/Nouveau_Programme'
