@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Text, View, Image } from 'react-native'
+import { Text, View, Image } from 'react-native'
 import validate from '../css/style_validate'
 
 export default class Validation_Questionnaire extends Component {

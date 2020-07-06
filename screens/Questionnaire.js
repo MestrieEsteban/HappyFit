@@ -1,5 +1,6 @@
 import React from 'react'
-import {Dimensions,
+import {
+  Dimensions,
   Text,
   TextInput,
   View,
@@ -184,7 +185,6 @@ export default class Screen extends React.Component {
               </View>
             </View>
             <Menu />
-
           </View>
           {/* page 2 */}
           <View style={slider.view_container}>
