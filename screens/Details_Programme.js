@@ -15,6 +15,8 @@ import {
 
 import style_programme from '../css/style_programme'
 import style_list_programme from '../css/style_programme'
+import Modal from 'modal-react-native-web'
+import style_modal from '../css/style_modal'
 
 export default class Details_Programme extends Component {
   constructor(props) {
@@ -23,7 +25,7 @@ export default class Details_Programme extends Component {
       exercice: [
         {
           id: 1,
-          label: 'exercice',
+          label: 'exercice 1',
           serie: 4,
           repetition: 40,
           pause: "1'30",
@@ -31,7 +33,7 @@ export default class Details_Programme extends Component {
         },
         {
           id: 2,
-          label: 'exercice',
+          label: 'exercice 2',
           serie: 4,
           repetition: 40,
           pause: "1'30",
@@ -39,7 +41,7 @@ export default class Details_Programme extends Component {
         },
         {
           id: 3,
-          label: 'exercice',
+          label: 'exercice 3',
           serie: 4,
           repetition: 40,
           pause: "1'30",
@@ -48,28 +50,39 @@ export default class Details_Programme extends Component {
       ],
       show: false,
       show_list: false,
+      Modalvisible: false,
     }
   }
 
   componentDidMount() {}
 
+  setModalStatus() {
+    if (!this.state.Modalvisible) {
+      this.setState({ Modalvisible: true })
+    }
+  }
+
   update(id) {
     let list_data = []
-    if (!this.state.show) {
-      this.setState({ show: true })
-    } else {
-      this.setState({ show: false })
-    }
 
     for (let i = 0; i < this.state.exercice.length; i++) {
-      if (i === id - 1) {
+      if (this.state.exercice[i].show && i === id - 1) {
         list_data.push({
           id: this.state.exercice[i].id,
           label: this.state.exercice[i].label,
           serie: this.state.exercice[i].serie,
           repetition: this.state.exercice[i].repetition,
           pause: this.state.exercice[i].pause,
-          show: this.state.show,
+          show: false,
+        })
+      } else if (!this.state.exercice[i].show && i === id - 1) {
+        list_data.push({
+          id: this.state.exercice[i].id,
+          label: this.state.exercice[i].label,
+          serie: this.state.exercice[i].serie,
+          repetition: this.state.exercice[i].repetition,
+          pause: this.state.exercice[i].pause,
+          show: true,
         })
       } else {
         list_data.push({
@@ -82,11 +95,12 @@ export default class Details_Programme extends Component {
         })
       }
     }
+
     this.setState({ exercice: list_data })
 
     let compteur = 0
-    for (let i = 0; i < this.state.exercice.length; i++) {
-      if (this.state.exercice[i].show) {
+    for (let i = 0; i < list_data.length; i++) {
+      if (list_data[i].show) {
         compteur++
       }
     }
@@ -96,9 +110,37 @@ export default class Details_Programme extends Component {
     } else {
       this.setState({ show_list: false })
     }
+    console.log(this.state.show_list)
+    console.log(list_data)
+    console.log(id)
+
+  }
+
+  Delete(status) {
+    if (status) {
+      let list_data = []
+      for (let i = 0; i < this.state.exercice.length; i++) {
+        if (!this.state.exercice[i].show) {
+          list_data.push({
+            id: i,
+            label: this.state.exercice[i].label,
+            serie: this.state.exercice[i].serie,
+            repetition: this.state.exercice[i].repetition,
+            pause: this.state.exercice[i].pause,
+            show: this.state.exercice[i].show,
+          })
+        }
+      }
+      this.setState({ exercice: list_data })
+      this.setState({ Modalvisible: false })
+    } else {
+      this.setState({ Modalvisible: false })
+    }
   }
 
   render() {
+    console.log(this.state.exercice)
+    console.log(this.state.show_list)
     return (
       <View style={style_programme.container}>
         <View style={style_programme.border_list_2}></View>
@@ -124,7 +166,7 @@ export default class Details_Programme extends Component {
               <FontAwesome5 name="arrow-left" size={30} color="black" />
             </TouchableOpacity>
             <View style={style_programme.margin_title_4}></View>
-            <TouchableOpacity onPress={() => this.Delete()}>
+            <TouchableOpacity onPress={() => this.setModalStatus()}>
               <MaterialCommunityIcons name="delete" size={30} color="black" />
             </TouchableOpacity>
             <TouchableOpacity>
@@ -152,14 +194,6 @@ export default class Details_Programme extends Component {
                       >
                         {item.label}{' '}
                       </Text>
-                      <Text
-                        style={[
-                          style_programme.text_up,
-                          style_programme.size_text_up,
-                        ]}
-                      >
-                        {item.id}
-                      </Text>
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -176,20 +210,12 @@ export default class Details_Programme extends Component {
                       >
                         {item.label}{' '}
                       </Text>
-                      <Text
-                        style={[
-                          style_programme.text_up,
-                          style_programme.size_text_up,
-                        ]}
-                      >
-                        {item.id}
-                      </Text>
                     </View>
                   </View>
                 </TouchableOpacity>
               )}
               {item.show ? (
-                <View style={style_list_programme.border_down}>
+                <View style={style_list_programme.color_border_down}>
                   <View style={style_list_programme.placement_text_down}>
                     <View style={style_list_programme.border_text_down}></View>
                     <Text style={style_list_programme.text_down}>
@@ -211,10 +237,54 @@ export default class Details_Programme extends Component {
           )}
         />
         <View style={style_programme.border_add_2}>
-          <TouchableOpacity onPress={() => this.props.navigation.replace('Programme Choix Muscle')}>
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.replace('Programme Choix Muscle')
+            }
+          >
             <AntDesign name="pluscircleo" size={30} color="black" />
           </TouchableOpacity>
         </View>
+        {this.state.Modalvisible ? (
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.modalVisible}
+          >
+            <View style={style_modal.container}>
+              <View style={style_modal.placement_modal}></View>
+              <View style={style_modal.border_modal}>
+                <View style={style_modal.border_container}></View>
+                <View style={style_modal.placement_title}>
+                  <Text style={style_modal.size_title}>
+                    {' '}
+                    Voulez supprimer le(s) exercice(s)
+                  </Text>
+                  <View style={style_modal.border_container}></View>
+                  <View style={style_modal.placement_btn}>
+                    <TouchableOpacity
+                      style={style_modal.btn_validate}
+                      onPress={() => this.Delete(true)}
+                    >
+                      <View style={style_modal.border_container_2}></View>
+                      <Text style={style_modal.color_btn}>Oui</Text>
+                    </TouchableOpacity>
+                    <View style={style_modal.espacement_btn}></View>
+                    <TouchableOpacity
+                      style={style_modal.btn_not_validate}
+                      onPress={() => this.Delete(false)}
+                    >
+                      <View style={style_modal.border_container_2}></View>
+                      <Text style={style_modal.color_btn}>Non</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </Modal>
+        ) : (
+          <View></View>
+        )}
       </View>
     )
   }

@@ -7,16 +7,20 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native'
+
+import Modal from 'modal-react-native-web'
+
 import {
   AntDesign,
   Entypo,
   FontAwesome5,
   MaterialCommunityIcons,
 } from '@expo/vector-icons'
+import CheckBox from 'react-native-checkbox-component'
 
+import style_modal from '../css/style_modal'
 import style_programme from '../css/style_programme'
 import validate from '../css/style_validate'
-import CheckBox from 'react-native-checkbox-component'
 import TabMenu from '../components/tabMenu'
 
 export default class Mes_Programme extends Component {
@@ -26,21 +30,21 @@ export default class Mes_Programme extends Component {
       programme: [
         {
           id: 1,
-          label: 'Programme',
+          label: 'Programme 1',
           show: false,
           case_checked: [],
           notification: 0,
         },
         {
           id: 2,
-          label: 'Programme',
+          label: 'Programme 2',
           show: false,
           case_checked: [],
           notification: 0,
         },
         {
           id: 3,
-          label: 'Programme',
+          label: 'Programme 3',
           show: false,
           case_checked: [],
           notification: 0,
@@ -80,12 +84,19 @@ export default class Mes_Programme extends Component {
       show: false,
       show_list: false,
       status: false,
+      Modalvisible: false,
     }
   }
 
   componentDidMount() {
     this.load_data()
     this.status()
+  }
+
+  setModalStatus() {
+    if (!this.state.Modalvisible) {
+      this.setState({ Modalvisible: true })
+    }
   }
 
   status = () => {
@@ -266,6 +277,28 @@ export default class Mes_Programme extends Component {
     this.setState({ show_list: false })
   }
 
+  Delete(status) {
+    if (status) {
+      let list_data = []
+      for (let i in this.state.programme) {
+        if(!this.state.programme[i].show)
+        {
+          list_data.push({
+            id: i,
+            label: this.state.programme[i].label,
+            show: this.state.programme[i].show,
+            case_checked: this.state.programme[i].case_checked,
+            notification: this.state.programme[i].notification,
+          })
+        }
+      }
+      this.setState({ programme: list_data })
+      this.setState({ Modalvisible: false })
+    } else {
+      this.setState({ Modalvisible: false })
+    }
+  }
+
   list_programme() {
     return (
       <View style={style_programme.container}>
@@ -286,13 +319,15 @@ export default class Mes_Programme extends Component {
               <FontAwesome5 name="arrow-left" size={30} color="black" />
             </TouchableOpacity>
             <View style={style_programme.margin_title_2}></View>
-            <TouchableOpacity onPress={() => this.Delete()}>
+            <TouchableOpacity onPress={() => this.setModalStatus()}>
               <MaterialCommunityIcons name="delete" size={30} color="black" />
             </TouchableOpacity>
           </View>
         )}
+
         <View style={style_programme.line_title} />
         <View style={style_programme.border_list}></View>
+
         <FlatList
           data={this.state.programme}
           style={style_programme.heigth_list}
@@ -318,14 +353,6 @@ export default class Mes_Programme extends Component {
                       >
                         {item.label}{' '}
                       </Text>
-                      <Text
-                        style={[
-                          style_programme.text_up,
-                          style_programme.size_text_up,
-                        ]}
-                      >
-                        {item.id}
-                      </Text>
                     </View>
                   </View>
                 </TouchableWithoutFeedback>
@@ -348,14 +375,6 @@ export default class Mes_Programme extends Component {
                         ]}
                       >
                         {item.label}{' '}
-                      </Text>
-                      <Text
-                        style={[
-                          style_programme.text_up,
-                          style_programme.size_text_up,
-                        ]}
-                      >
-                        {item.id}
                       </Text>
                     </View>
                   </View>
@@ -422,13 +441,57 @@ export default class Mes_Programme extends Component {
           )}
         />
         <View style={style_programme.border_add}>
-          <TouchableOpacity onPress={() => this.props.navigation.replace('Programme Choix Muscle')}>
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.replace('Programme Choix Muscle')
+            }
+          >
             <AntDesign name="pluscircleo" size={30} color="black" />
           </TouchableOpacity>
         </View>
         <View style={style_programme.border_menu}>
           <TabMenu />
         </View>
+        {this.state.Modalvisible ? (
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.modalVisible}
+          >
+            <View style={style_modal.container}>
+              <View style={style_modal.placement_modal}></View>
+              <View style={style_modal.border_modal}>
+                <View style={style_modal.border_container}></View>
+                <View style={style_modal.placement_title}>
+                  <Text style={style_modal.size_title}>
+                    {' '}
+                    Voulez supprimer le(s) programme(s)
+                  </Text>
+                  <View style={style_modal.border_container}></View>
+                  <View style={style_modal.placement_btn}>
+                    <TouchableOpacity
+                      style={style_modal.btn_validate}
+                      onPress={() => this.Delete(true)}
+                    >
+                      <View style={style_modal.border_container_2}></View>
+                      <Text style={style_modal.color_btn}>Oui</Text>
+                    </TouchableOpacity>
+                    <View style={style_modal.espacement_btn}></View>
+                    <TouchableOpacity
+                      style={style_modal.btn_not_validate}
+                      onPress={() => this.Delete(false)}
+                    >
+                      <View style={style_modal.border_container_2}></View>
+                      <Text style={style_modal.color_btn}>Non</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </Modal>
+        ) : (
+          <View></View>
+        )}
       </View>
     )
   }
