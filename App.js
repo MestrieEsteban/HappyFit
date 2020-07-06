@@ -69,7 +69,10 @@ export default class App extends Component {
           <Stack.Screen name="Dashboard" component={Dashboard} />
           <Stack.Screen name="Spash Screen" component={SplashScreen} />
           <Stack.Screen name="Questionnaire" component={Questionnaire} />
-          <Stack.Screen name="ValidationQuestionnaire" component={Validation_Questionnaire} />
+          <Stack.Screen
+            name="ValidationQuestionnaire"
+            component={Validation_Questionnaire}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     )
