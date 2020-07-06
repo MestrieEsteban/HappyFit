@@ -16,6 +16,7 @@ import Editexercice from './screens/Editexercice'
 import Choixexercice from './screens/Choixexercice'
 import Ajoutexercice from './screens/Ajoutexercice'
 import Addexercice from './screens/Addexercice'
+import Profil from './screens/Profil'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -49,9 +50,10 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Overflow">
-          <Stack.Screen name="Addexercice" component={Addexercice} />
+        <Stack.Navigator headerMode="none" initialRouteName="Profil">
+          <Stack.Screen name="Profil" component={Profil} />
           <Stack.Screen name="Maseance" component={Maseance} />
+          <Stack.Screen name="Addexercice" component={Addexercice} />
           <Stack.Screen name="Ajoutexercice" component={Ajoutexercice} />
           <Stack.Screen name="Choixexercice" component={Choixexercice} />
           <Stack.Screen name="Editexercice" component={Editexercice} />
@@ -60,7 +62,7 @@ export default class App extends Component {
           <Stack.Screen name="Spash Screen" component={SplashScreen} />
           <Stack.Screen name="Questionnaire" component={Questionnaire} />
           <Stack.Screen
-            name="Validation Questionnaire"
+            name="ValidationQuestionnaire"
             component={Validation_Questionnaire}
           />
         </Stack.Navigator>
