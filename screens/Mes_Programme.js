@@ -281,8 +281,7 @@ export default class Mes_Programme extends Component {
     if (status) {
       let list_data = []
       for (let i in this.state.programme) {
-        if(!this.state.programme[i].show)
-        {
+        if (!this.state.programme[i].show) {
           list_data.push({
             id: i,
             label: this.state.programme[i].label,

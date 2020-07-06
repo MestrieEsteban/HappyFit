@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
+<<<<<<< HEAD
 import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
 
 class HomeScreen extends React.Component {
@@ -8,6 +9,13 @@ class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={() => alert('a')}>
+=======
+
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+>>>>>>> origin
 
         <Image
           style={styles.image1}
@@ -27,7 +35,11 @@ class HomeScreen extends React.Component {
 
         <View style={styles.button1}>
           <Button
+<<<<<<< HEAD
             onPress={() => navigation.navigate('Introduction1')}
+=======
+            onPress={() => this.props.navigation.navigate('Introduction1')}
+>>>>>>> origin
             title="Inscription"
             color="#000000"
           />
@@ -35,14 +47,22 @@ class HomeScreen extends React.Component {
 
         <View style={styles.button2}>
           <Button
+<<<<<<< HEAD
             onPress={() => navigation.navigate('Connexion')}
+=======
+            onPress={() => this.props.navigation.navigate('Connexion')}
+>>>>>>> origin
             title="Connexion"
             color="#000000"
           />
         </View>
+<<<<<<< HEAD
         </TouchableOpacity>
       </View>
 
+=======
+      </View>
+>>>>>>> origin
     );
   }
 }

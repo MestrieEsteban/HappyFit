@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Image, TouchableWithoutFeedback } from 'react-native'
 import redirection from '../css/style_redirection'
-<<<<<<< HEAD
-=======
-import TouchableOpacity from "react-native-web/dist/exports/TouchableOpacity";
-import {TouchableWithoutFeedback} from "react-native-web";
->>>>>>> alexandre
+import style_redirection from '../css/style_redirection'
 
 export default class SplashScreen extends Component {
   constructor(props) {
@@ -15,23 +11,22 @@ export default class SplashScreen extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-=======
-        <TouchableWithoutFeedback>
->>>>>>> alexandre
-      <View style={redirection.container}>
-        <View style={redirection.border_container}></View>
-        <View style={redirection.border_logo}>
-          <Text style={redirection.text_logo}>Logo</Text>
+      <TouchableWithoutFeedback
+        style={redirection.container}
+        onPress={() => this.props.navigation.replace('Profil')}
+      >
+        <View style={style_redirection.view_container}>
+          <View style={redirection.border_logo}>
+            <Image
+              style={redirection.logo}
+              source={require('../assets/images/logo.png')}
+            />
+          </View>
+          <View style={redirection.border_name}>
+            <Text style={redirection.text_name}>HappyFit</Text>
+          </View>
         </View>
-        <View style={redirection.border_name}>
-          <Text style={redirection.text_name}>HappyFit</Text>
-        </View>
-      </View>
-<<<<<<< HEAD
-=======
-        </TouchableWithoutFeedback>
->>>>>>> alexandre
+      </TouchableWithoutFeedback>
     )
   }
 }

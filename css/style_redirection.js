@@ -1,60 +1,39 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-<<<<<<< HEAD
   container: {
     flex: 1,
     flexDirection: 'column',
+    backgroundColor: 'white',
   },
-
-  border_container: {
-    flex: 15,
+  view_container: {
+    flex: 1,
+    justifyContent: 'center',
   },
-
   border_logo: {
-    flex: 20,
+    flex: 10,
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
 
   text_logo: {
-    textAlign: 'center',
-    fontSize: 40,
+    justifyContent: 'center',
   },
 
   border_name: {
-    flex: 5,
+    flex: 1.5,
+    backgroundColor: 'white',
+    alignItems: 'center',
   },
 
   text_name: {
-    textAlign: 'center',
-    fontSize: 30,
+    fontSize: 20,
+    backgroundColor: 'white',
+  },
+
+  logo: {
+    width: 400,
+    height: 400,
+    alignItems: 'center',
   },
 })
-=======
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-    },
-
-    border_container: {
-        flex: 15,
-    },
-
-    border_logo: {
-        flex: 20,
-    },
-
-    text_logo: {
-        textAlign: 'center',
-        fontSize: 40,
-    },
-
-    border_name: {
-        flex: 5,
-    },
-
-    text_name: {
-        textAlign: 'center',
-        fontSize: 30,
-    },
-})
->>>>>>> alexandre

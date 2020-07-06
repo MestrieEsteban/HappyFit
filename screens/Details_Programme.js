@@ -113,7 +113,6 @@ export default class Details_Programme extends Component {
     console.log(this.state.show_list)
     console.log(list_data)
     console.log(id)
-
   }
 
   Delete(status) {

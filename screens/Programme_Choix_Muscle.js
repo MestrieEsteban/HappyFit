@@ -3,7 +3,7 @@ import { FlatList, Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 import style_programme from '../css/style_programme'
-import style_muscle from "../css/style_muscle";
+import style_muscle from '../css/style_muscle'
 
 export default class Programme_Choix_Muscle extends Component {
   constructor(props) {
@@ -60,9 +60,7 @@ export default class Programme_Choix_Muscle extends Component {
           style={style_programme.heigth_list}
           renderItem={({ item }) => (
             <View style={style_programme.margin_list}>
-              <TouchableOpacity
-                style={style_muscle.border_btn}
-              >
+              <TouchableOpacity style={style_muscle.border_btn}>
                 <Text style={style_muscle.title_btn}>{item.label}</Text>
               </TouchableOpacity>
               <View style={style_programme.espacement_programme}></View>
