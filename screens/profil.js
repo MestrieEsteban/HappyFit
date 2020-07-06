@@ -84,7 +84,7 @@ export default class Profil extends Component {
 
                 <View style={profil.infoperso}>
                   <Text style={profil.text2}>Age : 22</Text>
-                  <Text style={profil.text2}>Sexe : Femme</Text>
+                  <Text style={profil.text2}>Sexe : Homme</Text>
                 </View>
 
                 <View style={profil.infoperso2}>
