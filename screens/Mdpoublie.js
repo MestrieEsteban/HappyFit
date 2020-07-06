@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity,TextInput,Alert } from 'react-native'
-import mdpreni from '../css/style_mdpreni'
+import mdpoublie from '../css/style_mdpoublie'
 import ProfilePicture from 'react-native-profile-picture'
 
 export default class Mdpreni extends Component {
@@ -8,16 +8,13 @@ export default class Mdpreni extends Component {
     super(props)
     this.state = {
       password: '',
-      confirpassword: ''
     }
   };
 
   valider_Form() {
-    const { password, confirpassword } = this.state;
-    if (password === '' || confirpassword === '') {
+    const { password } = this.state;
+    if (password === '') {
       Alert.alert('un des champs est vide')
-    }else if(password !== confirpassword){
-      Alert.alert('les mots de passe ne sont pas identique')
     }else{
       this.props.navigation.replace('Dashboard')
     }
@@ -25,12 +22,12 @@ export default class Mdpreni extends Component {
 
   render() {
     return (
-      <View style={mdpreni.container}>
+      <View style={mdpoublie.container}>
 
-        <View style={mdpreni.container1}>
-          <Text style={mdpreni.h2}>Rénitialisation du </Text>
-          <Text style={mdpreni.h2}>mot de passe</Text>
-            <View style={mdpreni.profilpicture}>
+        <View style={mdpoublie.container1}>
+          <Text style={mdpoublie.h2}>Mot de passe </Text>
+          <Text style={mdpoublie.h2}>Oublié</Text>
+            <View style={mdpoublie.profilpicture}>
               <ProfilePicture
                 isPicture={true}
                 width={100}
@@ -42,38 +39,25 @@ export default class Mdpreni extends Component {
         </View>
 
         
-        <View View style={mdpreni.container2}>
-              <View style={mdpreni.input_back}>
+        <View View style={mdpoublie.container2}>
+            <View style={mdpoublie.input}>
+              <View style={mdpoublie.input_back}>
                   <TextInput
                     placeholder="Mot de passe"
                     placeholderTextColor="black"
-                    style={mdpreni.input_text}
+                    style={mdpoublie.input_text}
                     onChangeText={(password) => {
                       this.setState({ password })
                     }}/>
                 </View>
 
-                
-               <View style={mdpreni.input_back}>
-                  <TextInput
-                    placeholder="Confimer mot de passe"
-                    placeholderTextColor="black"
-                    style={mdpreni.input_text}
-                    onChangeText={(confirpassword) => {
-                      this.setState({ confirpassword })
-                    }}/>
+            </View> 
+                <View style={mdpoublie.border_container}>
+                  <TouchableOpacity style={mdpoublie.button} onPress={() => this.valider_Form()}>
+                    <Text style={mdpoublie.text_button}>Envoyer</Text>
+                  </TouchableOpacity>
                 </View>
         </View>
-
-
-        <View style={mdpreni.container3}>
-          <View style={mdpreni.border_container}>
-            <TouchableOpacity style={mdpreni.button} onPress={() => this.valider_Form()}>
-              <Text style={mdpreni.text_button}>Valider</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
       </View>
     )
   }

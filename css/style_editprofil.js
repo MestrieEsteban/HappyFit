@@ -151,6 +151,10 @@ export default StyleSheet.create({
             justifyContent: 'space-around',
         },
 
+        logo:{
+          marginLeft: 50,
+        },
+
         button:{
             borderRadius: 15,
             borderWidth: 2,

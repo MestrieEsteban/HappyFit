@@ -21,7 +21,8 @@ import Infoaide from './screens/Infoaide'
 import Editprofil from './screens/EditProfil'
 import Home from './screens/Home'
 import Mdpreni from './screens/Mdpreni'
-//import Mdpoublie from './screens/Mdpoublie'
+import Mdpoublie from './screens/Mdpoublie'
+import Mdpreccu from './screens/Mdpreccu'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -55,7 +56,9 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Mdpreni">
+        <Stack.Navigator headerMode="none" initialRouteName="Mdpreccu">
+         <Stack.Screen name="Mdpreccu" component={Mdpreccu} />
+          <Stack.Screen name="Mdpoublie" component={Mdpoublie} />
           <Stack.Screen name="Mdpreni" component={Mdpreni} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Editprofil" component={Editprofil} />
