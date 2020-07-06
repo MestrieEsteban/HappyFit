@@ -57,7 +57,7 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator headerMode="none" initialRouteName="Mdpreccu">
-         <Stack.Screen name="Mdpreccu" component={Mdpreccu} />
+          <Stack.Screen name="Mdpreccu" component={Mdpreccu} />
           <Stack.Screen name="Mdpoublie" component={Mdpoublie} />
           <Stack.Screen name="Mdpreni" component={Mdpreni} />
           <Stack.Screen name="Home" component={Home} />
