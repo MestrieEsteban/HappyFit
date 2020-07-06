@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {Text, View, TouchableOpacity, TextInput} from 'react-native'
 import editprofil from '../css/style_editprofil'
 import ProfilePicture from 'react-native-profile-picture'
