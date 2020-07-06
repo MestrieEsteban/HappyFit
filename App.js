@@ -13,6 +13,7 @@ import MotdepasseoublieScreen from './screens/Motdepasseoublie'
 import EmailenvoyeScreen from './screens/Emailenvoye'
 import ResmotdepasseScreen from './screens/Resmotdepasse'
 import MotdepassechangeScreen from './screens/Motdepassechange'
+import SplashScreen from "./screens/SplashScreen";
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -45,30 +46,27 @@ export default class App extends Component {
     }
 
     return (
-      <NavigationContainer initialRouteName="Inscription">
+      <NavigationContainer initialRouteName="Splash Screen" headerMode="none">
         <Stack.Navigator>
+          <Stack.Screen name="Splash Screen" component={SplashScreen} />
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="Connexion" component={ConnexionScreen} />
           <Stack.Screen name="Inscription" component={InscriptionScreen} />
           <Stack.Screen
             name="Motdepasseoublie"
             component={MotdepasseoublieScreen}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Emailenvoye"
             component={EmailenvoyeScreen}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Resmotdepasse"
             component={ResmotdepasseScreen}
-            options={{ headerShown: false }}
           />
           <Stack.Screen
             name="Motdepassechange"
             component={MotdepassechangeScreen}
-            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>
