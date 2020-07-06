@@ -94,7 +94,7 @@ export default StyleSheet.create({
       },
 
       container3:{
-        flex: 0.5,
+        flex: 0,
         backgroundColor: "yellow",
       },
 
@@ -170,5 +170,20 @@ export default StyleSheet.create({
             marginLeft: 50,
             marginTop: 5,
             fontSize: 18,
+          },
+          
+          input_back: {
+            marginTop: 10,
+            marginBottom: 10,
+            marginLeft: 80,
+            marginRight: 20,
+            backgroundColor: 'transparent',
+            borderBottomColor: '#000000',
+            borderBottomWidth: 1,
+            width: 200,
+          },
+        
+          input_text: {
+            fontSize: 20,
           },
 })

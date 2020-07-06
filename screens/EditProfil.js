@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import {Text, View, TouchableOpacity, Button} from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
+import {Text, View, TouchableOpacity, TextInput} from 'react-native'
 import editprofil from '../css/style_editprofil'
 import ProfilePicture from 'react-native-profile-picture'
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 
-function Separator() {
-  return <View style={editprofil.separator} />;
-}
-
 export default class Editprofil extends Component {
     constructor(props) {
       super(props)
       this.state = {
+        name: '',
+        email: '',
+        age: '',
+        poids: '',
+        sexe: '',
+        niveau: '',
+        objectif: '',
         image: null,
       }
     }
@@ -61,25 +63,67 @@ export default class Editprofil extends Component {
     render() {
       return (
 
-        <View style={editprofil.container}>
-            <View style={editprofil.container1}>
-              <Text style={editprofil.h2}> Editer Profil</Text> 
+            <View style={editprofil.container}>
+             <View style={editprofil.container1}>
+                <Text style={editprofil.h2}> Editer Profil</Text> 
 
-              <View style={editprofil.profilpicture}>
-              <ProfilePicture 
-                    onPress={this._pickImage}
-                    isPicture={true}
-                    width = {100}
-                    height = {100}
-                    requirePicture={require('../assets/images/profil.jpg')}
-                    shape='circle'/>
-              </View> 
+                  <View style={editprofil.profilpicture}>
+                      <ProfilePicture 
+                            onPress={this._pickImage}
+                            isPicture={true}
+                            width = {100}
+                            height = {100}
+                            requirePicture={require('../assets/images/profil.jpg')}
+                            shape='circle'/>
+                  </View> 
               
             </View>
 
             <View style={editprofil.container2}>
-              
 
+                  <View style={editprofil.input_back}>
+                  <TextInput
+                    placeholder="JaneDoe"
+                    placeholderTextColor="black"
+                    style={editprofil.input_text}
+                    onChangeText={(name) => {
+                      this.setState({ name })
+                    }}/>
+                </View>
+
+                <View style={editprofil.input_back}>
+                  <TextInput
+                    placeholder="JaneDoe@gmail.com"
+                    placeholderTextColor="black"
+                    style={editprofil.input_text}
+                    onChangeText={(email) => {
+                      this.setState({ email })
+                    }}/>
+                </View>
+
+                <View style={editprofil.input_back}>
+                  <TextInput
+                    placeholder="22 ans"
+                    placeholderTextColor="black"
+                    style={editprofil.input_text}
+                    onChangeText={(age) => {
+                      this.setState({ age })
+                    }}/>
+                </View>
+
+
+                <View style={editprofil.input_back}>
+                  <TextInput
+                    placeholder="78 kg"
+                    placeholderTextColor="black"
+                    style={editprofil.input_text}
+                    onChangeText={(poids) => {
+                      this.setState({ poids })
+                    }}/>
+                </View>
+
+
+              
 
                 <View>
                 <TouchableOpacity style={editprofil.button}

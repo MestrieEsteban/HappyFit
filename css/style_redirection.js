@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import layout from '../constants/Layout'
 
 export default StyleSheet.create({
   container: {
@@ -23,7 +24,7 @@ export default StyleSheet.create({
 
   text_name: {
     textAlign: 'center',
-    marginBottom: 250,
+    marginBottom: layout.window.width /1.5,
     fontSize: 20,
     backgroundColor: "white",
     

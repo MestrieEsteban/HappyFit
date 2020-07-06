@@ -52,7 +52,7 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Spash Screen">
+        <Stack.Navigator headerMode="none" initialRouteName="Editprofil">
           <Stack.Screen name="Editprofil" component={Editprofil} />
           <Stack.Screen name="Aideinfo" component={Infoaide} />
           <Stack.Screen name="Profil" component={Profil} />
