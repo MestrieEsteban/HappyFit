@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import {
-  Text,
-  View,
-  Image,
-  TouchableOpacity
-} from 'react-native'
+import { Text, View, Image, TouchableOpacity } from 'react-native'
 
 import styles_home from '../css/style_home'
 
@@ -15,11 +10,10 @@ export default class Home extends Component {
       <View style={styles_home.container}>
         <View style={styles_home.view_image}>
           <Image
-              style={styles_home.image1}
-              source={require('./../assets/images/logo.png')}
+            style={styles_home.image1}
+            source={require('./../assets/images/logo.png')}
           />
         </View>
-
 
         <View style={styles_home.placement_text}>
           <Text>
@@ -38,19 +32,21 @@ export default class Home extends Component {
         <View style={styles_home.border_container}></View>
         <View style={styles_home.view_button}>
           <View style={styles_home.button}>
-          <TouchableOpacity style={styles_home.placement_button} onPress={()=>navigation.navigate('Introduction')}>
-            <Text style={styles_home.placement_btn_text}>
-              Inscription
-            </Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles_home.placement_button}
+              onPress={() => navigation.navigate('Introduction')}
+            >
+              <Text style={styles_home.placement_btn_text}>Inscription</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles_home.border_container}></View>
           <View style={styles_home.button}>
-            <TouchableOpacity style={styles_home.placement_button} onPress={()=>navigation.navigate('Connexion')}>
-              <Text style={styles_home.placement_btn_text}>
-              Connexion
-            </Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles_home.placement_button}
+              onPress={() => navigation.navigate('Connexion')}
+            >
+              <Text style={styles_home.placement_btn_text}>Connexion</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

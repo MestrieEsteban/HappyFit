@@ -100,6 +100,12 @@ export default class Maseance extends Component {
             >
               <Text style={maseance.ButtonChrono}>RESET</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                style={maseance.appButtonchrono}
+                onPress={() => this.props.navigation.replace('Suiveseance')}
+            >
+              <Text style={maseance.ButtonChrono}>Suivi seance</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

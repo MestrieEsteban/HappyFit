@@ -28,7 +28,7 @@ export default class Choixexercice extends Component {
           <View style={choixexercice.border_container}>
             <TouchableOpacity
               style={choixexercice.button}
-              onPress={() => this.navigation()}
+              onPress={() => this.props.navigation.replace('Ajoutexercice')}
             >
               <Text style={choixexercice.text_button}>Tractions</Text>
             </TouchableOpacity>
@@ -37,7 +37,7 @@ export default class Choixexercice extends Component {
           <View style={choixexercice.border_container}>
             <TouchableOpacity
               style={choixexercice.button1}
-              onPress={() => this.navigation()}
+              onPress={() => this.props.navigation.replace('Ajoutexercice')}
             >
               <Text style={choixexercice.text_button1}>Curl</Text>
             </TouchableOpacity>
@@ -46,7 +46,7 @@ export default class Choixexercice extends Component {
           <View style={choixexercice.border_container}>
             <TouchableOpacity
               style={choixexercice.button2}
-              onPress={() => this.navigation()}
+              onPress={() => this.props.navigation.replace('Ajoutexercice')}
             >
               <Text style={choixexercice.text_button2}>Pompes</Text>
             </TouchableOpacity>

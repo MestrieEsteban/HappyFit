@@ -17,7 +17,7 @@ export default function tabMenu() {
     <View style={style_tabmenu.container}>
       <TouchableOpacity
         style={style_tabmenu.button_icons}
-        onPress={() => navigation.navigate('Questionnaire')}
+        onPress={() => navigation.navigate('Dashboard')}
       >
         <View style={style_tabmenu.icons}>
           <FontAwesome name="home" size={50} color="black" />
@@ -25,7 +25,7 @@ export default function tabMenu() {
       </TouchableOpacity>
       <TouchableOpacity
         style={style_tabmenu.button_icons}
-        onPress={() => navigation.navigate('Questionnaire')}
+        onPress={() => navigation.navigate('Mes Programmes')}
       >
         <View style={style_tabmenu.icons}>
           <AntDesign name="calendar" size={50} color="black" />
@@ -33,7 +33,7 @@ export default function tabMenu() {
       </TouchableOpacity>
       <TouchableOpacity
         style={style_tabmenu.button_icons}
-        onPress={() => navigation.navigate('Questionnaire')}
+        onPress={() => navigation.navigate('')}
       >
         <View style={style_tabmenu.icons}>
           <Octicons name="graph" size={50} color="black" />
@@ -41,7 +41,7 @@ export default function tabMenu() {
       </TouchableOpacity>
       <TouchableOpacity
         style={style_tabmenu.button_icons}
-        onPress={() => navigation.navigate('Questionnaire')}
+        onPress={() => navigation.navigate('Profil')}
       >
         <View style={style_tabmenu.icons}>
           <MaterialIcons name="account-circle" size={50} color="black" />

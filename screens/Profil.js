@@ -99,16 +99,16 @@ export default class Profil extends Component {
           <View>
             <TouchableOpacity
               style={profil.button}
-              onPress={() => this.navigation()}
+              onPress={() => this.props.navigation.replace('Editprofil')}
             >
               <Text style={profil.text_button}>Editer</Text>
             </TouchableOpacity>
 
-            <Text style={profil.text2} onPress={() => this.navigation()}>
+            <Text style={profil.text2} onPress={() =>  this.props.navigation.replace('Aideinfo')}>
               {' '}
               <AntDesign name="infocirlce" size={24} color="black" /> info
             </Text>
-            <Text style={profil.text2} onPress={() => this.navigation()}>
+            <Text style={profil.text2} onPress={() =>  this.props.navigation.replace('Home')}>
               {' '}
               <AntDesign name="logout" size={24} color="black" /> Déconnecté
             </Text>

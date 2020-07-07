@@ -168,7 +168,7 @@ export default class Details_Programme extends Component {
             <TouchableOpacity onPress={() => this.setModalStatus()}>
               <MaterialCommunityIcons name="delete" size={30} color="black" />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.navigation.replace('Editexercice')}>
               <Entypo name="edit" size={30} color="black" />
             </TouchableOpacity>
           </View>

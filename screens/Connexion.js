@@ -48,7 +48,7 @@ export default class Connexion extends Component {
         </View>
         <View style={style_connexion.placement_btn_1}></View>
         <View style={style_connexion.border_btn_1}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
             <Text style={style_connexion.text_btn_1}> Se connecter</Text>
           </TouchableOpacity>
         </View>
@@ -59,6 +59,12 @@ export default class Connexion extends Component {
             <Text style={style_connexion.text_btn_2}> S'inscrire</Text>
           </TouchableOpacity>
         </View>
+
+          <View style={style_connexion.border_btn_2}>
+              <TouchableOpacity onPress={() => navigation.replace('Mdpoublie')}>
+                  <Text style={style_connexion.text_btn_2}> Mot de passe oublié</Text>
+              </TouchableOpacity>
+          </View>
       </View>
     )
   }

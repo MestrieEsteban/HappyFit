@@ -63,4 +63,10 @@ export default StyleSheet.create({
     color: 'black',
     marginTop: 10,
   },
+  border_checkbox: {
+    flex: 0.05,
+  },
+  placement_check_box: {
+    flexDirection: 'row',
+  },
 })

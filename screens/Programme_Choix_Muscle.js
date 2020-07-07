@@ -60,7 +60,7 @@ export default class Programme_Choix_Muscle extends Component {
           style={style_programme.heigth_list}
           renderItem={({ item }) => (
             <View style={style_programme.margin_list}>
-              <TouchableOpacity style={style_muscle.border_btn}>
+              <TouchableOpacity style={style_muscle.border_btn} onPress={() => this.props.navigation.replace('Choixexercice')}>
                 <Text style={style_muscle.title_btn}>{item.label}</Text>
               </TouchableOpacity>
               <View style={style_programme.espacement_programme}></View>

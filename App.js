@@ -16,6 +16,19 @@ import Nouveau_Programme from './screens/Nouveau_Programme'
 import Mes_Programme from './screens/Mes_Programme'
 import Details_Programme from './screens/Details_Programme'
 import Programme_Choix_Muscle from './screens/Programme_Choix_Muscle'
+import Dashboard from './screens/Dashboad'
+import Maseance from './screens/Maseance'
+import Suiveseance from './screens/Suivieseance'
+import Editexercice from './screens/Editexercice'
+import Choixexercice from './screens/Choixexercice'
+import Ajoutexercice from './screens/Ajoutexercice'
+import Addexercice from './screens/Addexercice'
+import Profil from './screens/Profil'
+import Infoaide from './screens/Infoaide'
+import Editprofil from './screens/EditProfil'
+import Mdpreni from './screens/Mdpreni'
+import Mdpoublie from './screens/Mdpoublie'
+import Mdpreccu from './screens/Mdpreccu'
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -69,6 +82,19 @@ export default class App extends Component {
             name="Programme Choix Muscle"
             component={Programme_Choix_Muscle}
           />
+        <Stack.Screen name="Mdpreccu" component={Mdpreccu} />
+        <Stack.Screen name="Mdpoublie" component={Mdpoublie} />
+        <Stack.Screen name="Mdpreni" component={Mdpreni} />
+        <Stack.Screen name="Editprofil" component={Editprofil} />
+        <Stack.Screen name="Aideinfo" component={Infoaide} />
+        <Stack.Screen name="Profil" component={Profil} />
+        <Stack.Screen name="Maseance" component={Maseance} />
+        <Stack.Screen name="Addexercice" component={Addexercice} />
+        <Stack.Screen name="Ajoutexercice" component={Ajoutexercice} />
+        <Stack.Screen name="Choixexercice" component={Choixexercice} />
+        <Stack.Screen name="Editexercice" component={Editexercice} />
+        <Stack.Screen name="Suiveseance" component={Suiveseance} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
         </Stack.Navigator>
       </NavigationContainer>
     )

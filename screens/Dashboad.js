@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableHighlight, Dimensions } from 'react-native'
 import dashboard from '../css/style_dashboad'
-import Menu from '../components/menu'
+import Menu from '../components/tabMenu'
 import {
   LineChart,
   BarChart,
@@ -44,11 +44,11 @@ export default class Dashboard extends Component {
         <Separator />
 
         <View style={dashboard.presentation}>
-          <TouchableHighlight style={dashboard.submit}>
+          <TouchableHighlight style={dashboard.submit} onPress={() => this.props.navigation.replace('Maseance')}>
             <Text style={dashboard.submitText}>Commencer</Text>
           </TouchableHighlight>
 
-          <TouchableHighlight style={dashboard.Demande}>
+          <TouchableHighlight style={dashboard.Demande} onPress={() => this.props.navigation.replace('Nouveau Programme')}>
             <Text style={dashboard.submitDemande}>
               Demander à {this.state.name} un nouveau Programme
             </Text>

@@ -110,10 +110,10 @@ export default class Nouveau_Programme extends Component {
                   <View style={style_list_programme.border_text_up}></View>
                   <View style={style_list_programme.placement_text_up}>
                     <Text style={style_list_programme.text_up}>
-                      {item.exercise}{' '}-{' '}
+                      {item.exercise} -{' '}
                     </Text>
                     <Text style={style_list_programme.text_up}>
-                       {item.muscle}
+                      {item.muscle}
                     </Text>
                   </View>
                 </View>
@@ -153,7 +153,15 @@ export default class Nouveau_Programme extends Component {
           <View style={style_list_programme.border_arrow}></View>
         )}
         <View style={style_list_programme.border_check}>
+          <TouchableOpacity
+              onPress={() =>
+                  this.props.navigation.replace('Dashboard', {
+                    data: this.state.data,
+                  })
+              }
+          >
           <Entypo name="cross" size={65} color="black" />
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
               this.props.navigation.replace('Mes Programmes', {

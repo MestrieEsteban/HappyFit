@@ -1,101 +1,91 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity,TextInput,Alert, CheckBox} from 'react-native'
-import inscription from '../css/style_inscription'
-import ProfilePicture from 'react-native-profile-picture'
+import { Text, View, TouchableOpacity, TextInput } from 'react-native'
+import CheckBox from 'react-native-checkbox-component'
 
-export default class Inscription extends Component {
+import { MaterialIcons } from '@expo/vector-icons'
+import style_connexion from '../css/style_connexion'
+
+export default class Connexion extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      email: '',
       password: '',
-      confirpassword: '',
-      select:'',
-      isSelected:'',
+      checked: false,
     }
-  };
+  }
 
-  valider_Form() {
-    const { password, confirpassword } = this.state;
-    if (password === '' || confirpassword === '') {
-      Alert.alert('un des champs est vide')
-    }else if(password !== confirpassword){
-      Alert.alert('les mots de passe ne sont pas identique')
-    }else{
-      this.props.navigation.replace('Dashboard')
+  componentDidMount() {}
+
+  setChecked() {
+    if (!this.state.checked) {
+      this.setState({ checked: true })
+    } else {
+      this.setState({ checked: false })
     }
   }
 
   render() {
+    const { navigation } = this.props
     return (
-        <View style={inscription.container}>
-
-          <View style={inscription.container1}>
-            <Text style={inscription.h2}>Inscription</Text>
-            <View style={inscription.profilpicture}>
-              <ProfilePicture
-                  isPicture={true}
-                  width={100}
-                  height={100}
-                  requirePicture={require('../assets/images/profil.jpg')}
-                  shape="circle"/>
-            </View>
-
-          </View>
-
-
-          <View View style={inscription.container2}>
-            <View style={inscription.input}>
-
-              <View style={inscription.input_back}>
-                <TextInput
-                    placeholder="Mot de passe"
-                    placeholderTextColor="black"
-                    style={inscription.input_text}
-                    onChangeText={(password) => {
-                      this.setState({ password })
-                    }}/>
-              </View>
-
-              <View style={inscription.input_back}>
-                <TextInput
-                    placeholder="Confimer mot de passe"
-                    placeholderTextColor="black"
-                    style={inscription.input_text}
-                    onChangeText={(confirpassword) => {
-                      this.setState({ confirpassword })
-                    }}/>
-              </View>
-              <View style={inscription.checkboxContainer}>
-                <CheckBox
-
-                    onChangeText={(isSelected) => {
-                      this.setState({ isSelected }) }}
-                    style={inscription.checkbox}
-                />
-              </View>
-
-              <Text style={inscription.label}>Acepter les conditions d'utilisations </Text>
-
-            </View>
-            <View >
-              <TouchableOpacity style={inscription.button} onPress={() => this.valider_Form()}>
-                <Text style={inscription.text_button}>S'inscrire</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View >
-              <TouchableOpacity style={inscription.button} onPress={() => this.props.navigation.navigate('Profil')}>
-                <Text style={inscription.text_button}>Se connecter</Text>
-              </TouchableOpacity>
-            </View>
-
-          </View>
-
-
-
-
-
+      <View style={style_connexion.container}>
+        <View style={style_connexion.border_title}></View>
+        <Text style={style_connexion.size_title}> Inscription</Text>
+        <View style={style_connexion.border_icons}></View>
+        <MaterialIcons name="account-circle" size={150} color="black" />
+        <View style={style_connexion.border_input_1}></View>
+        <View style={style_connexion.input_back}>
+          <TextInput
+            placeholder="Email"
+            placeholderTextColor="black"
+            style={style_connexion.input_text}
+            onChangeText={(email) => {
+              this.setState({ email })
+            }}
+          />
         </View>
+        <View style={style_connexion.border_input_2}></View>
+        <View style={style_connexion.input_back}>
+          <TextInput
+            placeholder="Mot de passe"
+            placeholderTextColor="black"
+            secureTextEntry={true}
+            style={style_connexion.input_text}
+            onChangeText={(password) => {
+              this.setState({ password })
+            }}
+          />
+        </View>
+        <View style={style_connexion.border_checkbox}></View>
+        <View style={style_connexion.placement_check_box}>
+          <CheckBox
+            checkedCheckBoxColor={'black'}
+            rightText={"Accepter les conditions d'utilisations"}
+            isChecked={this.state.checked}
+            onClick={() => this.setChecked()}
+          />
+        </View>
+        <View style={style_connexion.placement_btn_1}></View>
+        <View style={style_connexion.border_btn_1}>
+          <TouchableOpacity onPress={() => navigation.replace('Questionnaire')}>
+            <Text style={style_connexion.text_btn_1}> S'inscrire</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={style_connexion.placement_btn_2}></View>
+
+        <View style={style_connexion.border_btn_2}>
+          <TouchableOpacity onPress={() => navigation.replace('Connexion')}>
+            <Text style={style_connexion.text_btn_2}> Se connecter</Text>
+          </TouchableOpacity>
+        </View>
+          <View style={style_connexion.placement_btn_2}></View>
+
+          <View style={style_connexion.border_btn_2}>
+              <TouchableOpacity onPress={() => navigation.replace('Mdpoublie')}>
+                  <Text style={style_connexion.text_btn_2}> Mot de passe oublié</Text>
+              </TouchableOpacity>
+          </View>
+      </View>
     )
   }
 }

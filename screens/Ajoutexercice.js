@@ -17,7 +17,7 @@ export default class Ajoutexercice extends Component {
   }
 
   navigation() {
-    this.props.navigation.replace('Dashboard')
+    this.props.navigation.replace('Mes Programmes')
   }
 
   render() {
