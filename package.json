@@ -69,6 +69,7 @@
     "prettier": "^2.0.2",
     "react-native-check-box": "^2.1.7",
     "react-native-checkbox-component": "^1.0.3",
+    "react-native-profile-picture": "^1.0.0",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-swiper": "^1.6.0",
     "react-native-web-swiper": "^2.1.3"

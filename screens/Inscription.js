@@ -1,53 +1,101 @@
 import React, { Component } from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
-
-import styles_home from '../css/style_home'
-import { MaterialIcons } from '@expo/vector-icons'
+import { Text, View, TouchableOpacity,TextInput,Alert, CheckBox} from 'react-native'
+import inscription from '../css/style_inscription'
+import ProfilePicture from 'react-native-profile-picture'
 
 export default class Inscription extends Component {
-  render() {
-    const { navigation } = this.props
-    return (
-      <View style={styles_home.container}>
-        <View style={styles_home.view_image}>
-          <MaterialIcons name="account-circle" size={24} color="black" />
-        </View>
+  constructor(props) {
+    super(props)
+    this.state = {
+      password: '',
+      confirpassword: '',
+      select:'',
+      isSelected:'',
+    }
+  };
 
-        <View style={styles_home.placement_text}>
-          <Text>
-            Happy Fit c’est une méthode pour être{'\n'}
-            {'\n'}
-            "heureux quel que soit son fit "{'\n'}
-            {'\n'}
-            Soit en s’amusant à notre cours de sport, soit en participant à un
-            de mes ateliers confiance en soi.{'\n'}
-            {'\n'}
-            ​Ce que nous voulons transmettre avec HappyFit : c’est que le sport
-            c’est avant tout du plaisir et ça reste le meilleur moyen de prendre
-            confiance en soi.
-          </Text>
-        </View>
-        <View style={styles_home.border_container}></View>
-        <View style={styles_home.view_button}>
-          <View style={styles_home.button}>
-            <TouchableOpacity
-              style={styles_home.placement_button}
-              onPress={() => navigation.navigate('Introduction')}
-            >
-              <Text style={styles_home.placement_btn_text}>Inscription</Text>
-            </TouchableOpacity>
+  valider_Form() {
+    const { password, confirpassword } = this.state;
+    if (password === '' || confirpassword === '') {
+      Alert.alert('un des champs est vide')
+    }else if(password !== confirpassword){
+      Alert.alert('les mots de passe ne sont pas identique')
+    }else{
+      this.props.navigation.replace('Dashboard')
+    }
+  }
+
+  render() {
+    return (
+        <View style={inscription.container}>
+
+          <View style={inscription.container1}>
+            <Text style={inscription.h2}>Inscription</Text>
+            <View style={inscription.profilpicture}>
+              <ProfilePicture
+                  isPicture={true}
+                  width={100}
+                  height={100}
+                  requirePicture={require('../assets/images/profil.jpg')}
+                  shape="circle"/>
+            </View>
+
           </View>
-          <View style={styles_home.border_container}></View>
-          <View style={styles_home.button}>
-            <TouchableOpacity
-              style={styles_home.placement_button}
-              onPress={() => navigation.navigate('Connexion')}
-            >
-              <Text style={styles_home.placement_btn_text}>Connexion</Text>
-            </TouchableOpacity>
+
+
+          <View View style={inscription.container2}>
+            <View style={inscription.input}>
+
+              <View style={inscription.input_back}>
+                <TextInput
+                    placeholder="Mot de passe"
+                    placeholderTextColor="black"
+                    style={inscription.input_text}
+                    onChangeText={(password) => {
+                      this.setState({ password })
+                    }}/>
+              </View>
+
+              <View style={inscription.input_back}>
+                <TextInput
+                    placeholder="Confimer mot de passe"
+                    placeholderTextColor="black"
+                    style={inscription.input_text}
+                    onChangeText={(confirpassword) => {
+                      this.setState({ confirpassword })
+                    }}/>
+              </View>
+              <View style={inscription.checkboxContainer}>
+                <CheckBox
+
+                    onChangeText={(isSelected) => {
+                      this.setState({ isSelected }) }}
+                    style={inscription.checkbox}
+                />
+              </View>
+
+              <Text style={inscription.label}>Acepter les conditions d'utilisations </Text>
+
+            </View>
+            <View >
+              <TouchableOpacity style={inscription.button} onPress={() => this.valider_Form()}>
+                <Text style={inscription.text_button}>S'inscrire</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View >
+              <TouchableOpacity style={inscription.button} onPress={() => this.props.navigation.navigate('Profil')}>
+                <Text style={inscription.text_button}>Se connecter</Text>
+              </TouchableOpacity>
+            </View>
+
           </View>
+
+
+
+
+
         </View>
-      </View>
     )
   }
 }

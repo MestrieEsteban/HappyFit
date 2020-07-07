@@ -21,56 +21,56 @@ const Stack = createStackNavigator()
 console.disableYellowBox = true
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isReady: false,
-    }
-  }
-
-  async componentDidMount() {
-    this.load_policy()
-  }
-
-  async load_policy() {
-    await Font.loadAsync({
-      Roboto: require('native-base/Fonts/Roboto.ttf'),
-      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-      space_mono: require('./assets/fonts/SpaceMono-Regular.ttf'),
-      ...Ionicons.font,
-    })
-    this.setState({ isReady: true })
-  }
-
-  render() {
-    if (!this.state.isReady) {
-      return <AppLoading />
+    constructor(props) {
+        super(props)
+        this.state = {
+            isReady: false,
+        }
     }
 
-    return (
-      <NavigationContainer>
-        <Stack.Navigator headerMode="none">
-          <Stack.Screen name="Splash Screen" component={SplashScreen} />
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Inscription" component={Inscription} />
-          <Stack.Screen name="Connexion" component={Connexion} />
-          <Stack.Screen name="Questionnaire" component={Questionnaire} />
-          <Stack.Screen name="Introduction" component={Introduction} />
-          <Stack.Screen
-            name="Nouveau Programme"
-            component={Nouveau_Programme}
-          />
-          <Stack.Screen name="Mes Programmes" component={Mes_Programme} />
-          <Stack.Screen
-            name="Details Programmes"
-            component={Details_Programme}
-          />
-          <Stack.Screen
-            name="Programme Choix Muscle"
-            component={Programme_Choix_Muscle}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    )
-  }
+    async componentDidMount() {
+        this.load_policy()
+    }
+
+    async load_policy() {
+        await Font.loadAsync({
+            Roboto: require('native-base/Fonts/Roboto.ttf'),
+            Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+            space_mono: require('./assets/fonts/SpaceMono-Regular.ttf'),
+            ...Ionicons.font,
+        })
+        this.setState({ isReady: true })
+    }
+
+    render() {
+        if (!this.state.isReady) {
+            return <AppLoading />
+        }
+
+        return (
+            <NavigationContainer>
+                <Stack.Navigator headerMode="none">
+                    <Stack.Screen name="Splash Screen" component={SplashScreen} />
+                    <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="Inscription" component={Inscription} />
+                    <Stack.Screen name="Connexion" component={Connexion} />
+                    <Stack.Screen name="Questionnaire" component={Questionnaire} />
+                    <Stack.Screen name="Introduction" component={Introduction} />
+                    <Stack.Screen
+                        name="Nouveau Programme"
+                        component={Nouveau_Programme}
+                    />
+                    <Stack.Screen name="Mes Programmes" component={Mes_Programme} />
+                    <Stack.Screen
+                        name="Details Programmes"
+                        component={Details_Programme}
+                    />
+                    <Stack.Screen
+                        name="Programme Choix Muscle"
+                        component={Programme_Choix_Muscle}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        )
+    }
 }
