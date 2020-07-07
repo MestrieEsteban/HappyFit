@@ -23,6 +23,7 @@ import Home from './screens/Home'
 import Mdpreni from './screens/Mdpreni'
 import Mdpoublie from './screens/Mdpoublie'
 import Mdpreccu from './screens/Mdpreccu'
+import Inscription from './screens/Inscription';
 
 const Stack = createStackNavigator()
 console.disableYellowBox = true
@@ -56,7 +57,8 @@ export default class App extends Component {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator headerMode="none" initialRouteName="Mdpreccu">
+        <Stack.Navigator headerMode="none" initialRouteName="Inscription">
+          <Stack.Screen name="Inscription" component={Inscription} />
           <Stack.Screen name="Mdpreccu" component={Mdpreccu} />
           <Stack.Screen name="Mdpoublie" component={Mdpoublie} />
           <Stack.Screen name="Mdpreni" component={Mdpreni} />
