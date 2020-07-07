@@ -48,7 +48,7 @@ export default class Connexion extends Component {
         </View>
         <View style={style_connexion.placement_btn_1}></View>
         <View style={style_connexion.border_btn_1}>
-          <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
+          <TouchableOpacity onPress={() => this.props.navigation.replace('Dashboard')}>
             <Text style={style_connexion.text_btn_1}> Se connecter</Text>
           </TouchableOpacity>
         </View>

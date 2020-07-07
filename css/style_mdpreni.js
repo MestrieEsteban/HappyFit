@@ -13,7 +13,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25,
     marginTop: 10,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   profilpicture: {

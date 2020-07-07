@@ -13,7 +13,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25,
     marginTop: 10,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   text2: {
@@ -23,7 +23,7 @@ export default StyleSheet.create({
     fontSize: 15,
     marginTop: 5,
     marginBottom: 5,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   text: {
@@ -34,7 +34,7 @@ export default StyleSheet.create({
     marginTop: 5,
     marginBottom: 5,
     textDecorationLine: 'underline',
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   profilpicture: {

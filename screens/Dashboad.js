@@ -56,7 +56,7 @@ export default class Dashboard extends Component {
         </View>
 
         <View style={dashboard.statistique}>
-          <View style={dashboard.statistiqueName}>
+          <View>
             <Text style={dashboard.statistiqueText}>Derniere Statistique</Text>
           </View>
 

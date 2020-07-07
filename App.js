@@ -82,19 +82,19 @@ export default class App extends Component {
             name="Programme Choix Muscle"
             component={Programme_Choix_Muscle}
           />
-        <Stack.Screen name="Mdpreccu" component={Mdpreccu} />
-        <Stack.Screen name="Mdpoublie" component={Mdpoublie} />
-        <Stack.Screen name="Mdpreni" component={Mdpreni} />
-        <Stack.Screen name="Editprofil" component={Editprofil} />
-        <Stack.Screen name="Aideinfo" component={Infoaide} />
-        <Stack.Screen name="Profil" component={Profil} />
-        <Stack.Screen name="Maseance" component={Maseance} />
-        <Stack.Screen name="Addexercice" component={Addexercice} />
-        <Stack.Screen name="Ajoutexercice" component={Ajoutexercice} />
-        <Stack.Screen name="Choixexercice" component={Choixexercice} />
-        <Stack.Screen name="Editexercice" component={Editexercice} />
-        <Stack.Screen name="Suiveseance" component={Suiveseance} />
-        <Stack.Screen name="Dashboard" component={Dashboard} />
+          <Stack.Screen name="Mdpreccu" component={Mdpreccu} />
+          <Stack.Screen name="Mdpoublie" component={Mdpoublie} />
+          <Stack.Screen name="Mdpreni" component={Mdpreni} />
+          <Stack.Screen name="Editprofil" component={Editprofil} />
+          <Stack.Screen name="Aideinfo" component={Infoaide} />
+          <Stack.Screen name="Profil" component={Profil} />
+          <Stack.Screen name="Maseance" component={Maseance} />
+          <Stack.Screen name="Addexercice" component={Addexercice} />
+          <Stack.Screen name="Ajoutexercice" component={Ajoutexercice} />
+          <Stack.Screen name="Choixexercice" component={Choixexercice} />
+          <Stack.Screen name="Editexercice" component={Editexercice} />
+          <Stack.Screen name="Suiveseance" component={Suiveseance} />
+          <Stack.Screen name="Dashboard" component={Dashboard} />
         </Stack.Navigator>
       </NavigationContainer>
     )

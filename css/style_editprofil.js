@@ -13,7 +13,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25,
     marginTop: 10,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   profilpicture: {
@@ -28,7 +28,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
     marginTop: 5,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   text2: {
@@ -38,7 +38,7 @@ export default StyleSheet.create({
     fontSize: 15,
     marginTop: 5,
     marginBottom: 5,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   appButton: {
@@ -74,10 +74,10 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     height: 40,
     width: 150,
-    marginButtom: 0,
+    marginBottom: 0,
     marginTop: 0,
     marginLeft: -30,
-    marginRigth: 0,
+    marginRight: 0,
   },
 
   container1: {
@@ -97,9 +97,9 @@ export default StyleSheet.create({
 
   alternativeLayoutButtonContainer: {
     marginTop: 20,
-    marginButtom: 0,
+    marginBottom: 0,
     marginLeft: 50,
-    marginRigth: 0,
+    marginRight: 0,
     flexDirection: 'row',
     justifyContent: 'space-between',
     textAlign: 'center',
@@ -119,9 +119,9 @@ export default StyleSheet.create({
 
   cercle: {
     marginTop: 100,
-    marginButtom: 100,
+    marginBottom: 100,
     marginLeft: 100,
-    marginRigth: 100,
+    marginRight: 100,
   },
 
   chronostyle: {
@@ -157,10 +157,10 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     height: 40,
     width: 150,
-    marginButtom: 50,
+    marginBottom: 50,
     marginTop: 5,
     marginLeft: 100,
-    marginRigth: 50,
+    marginRight: 50,
   },
 
   text_button: {

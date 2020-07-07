@@ -13,7 +13,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 25,
     marginTop: 10,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   profilpicture: {
@@ -39,7 +39,7 @@ export default StyleSheet.create({
     fontSize: 15,
     marginTop: 5,
     marginBottom: 5,
-    fontFamily: 'Sarpanch-Regular',
+
   },
 
   text_button: {
