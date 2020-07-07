@@ -10,6 +10,7 @@
     "lint": "yarn eslint App.js",
     "build": "yarn babel ./ --out-dir .dist --extensions \".js\" --fix"
   },
+  "proxy": "https://server-happyfit.herokuapp.com",
   "engines": {
     "yarn": "^1.21",
     "npm": "^6.14"
